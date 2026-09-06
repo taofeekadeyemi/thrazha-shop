@@ -39,20 +39,28 @@ CHIP_LABELS = {
 
 VALID_STATUSES = {"available", "sold", "coming_soon"}
 VALID_CONDITIONS = {"New, sealed", "Open box", "Customer return", "Renewed", "Overstock"}
-FIELDNAMES = ["id", "title", "category", "qty", "price_min", "price_max", "status", "lots", "photo", "condition"]
+FIELDNAMES = ["id", "title", "category", "qty", "price_min", "price_max", "status", "lots", "photo", "condition", "featured"]
 
 
-def ensure_condition_column(path):
-    """Back-compat migration: adds a `condition` column (default Overstock) the first
-    time this runs against an older products.csv that doesn't have one yet."""
+def ensure_columns(path):
+    """Back-compat migration: adds `condition` (default Overstock) and `featured`
+    (default blank) columns the first time this runs against an older
+    products.csv that doesn't have them yet."""
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
-        had_condition = reader.fieldnames and "condition" in reader.fieldnames
-    if had_condition:
+        fieldnames = reader.fieldnames or []
+    changed = False
+    if "condition" not in fieldnames:
+        for row in rows:
+            row["condition"] = "Overstock"
+        changed = True
+    if "featured" not in fieldnames:
+        for row in rows:
+            row["featured"] = ""
+        changed = True
+    if not changed:
         return
-    for row in rows:
-        row["condition"] = "Overstock"
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
@@ -60,7 +68,7 @@ def ensure_condition_column(path):
 
 
 def load_products(path):
-    ensure_condition_column(path)
+    ensure_columns(path)
     products = []
     with open(path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
@@ -73,6 +81,7 @@ def load_products(path):
             row["status"] = status if status in VALID_STATUSES else "available"
             cond = (row.get("condition") or "").strip()
             row["condition"] = cond if cond in VALID_CONDITIONS else "Overstock"
+            row["featured"] = (row.get("featured") or "").strip().lower() in ("yes", "true", "1")
             products.append(row)
     return products
 
@@ -122,6 +131,7 @@ def to_card_dict(item):
         "qty": item["qty"],
         "unitLabel": unit_label(item),
         "status": item["status"],
+        "featured": item["featured"],
     }
 
 
@@ -144,9 +154,13 @@ def main():
     featured = sorted(cards_available, key=lambda c: c["price"], reverse=True)[:5]
 
     # Hero right column: top product + next two by price.
+    # Manually flagged (products.csv `featured` = yes) wins; otherwise falls back
+    # to the highest-priced available item.
     by_price = sorted(cards_available, key=lambda c: c["price"], reverse=True)
-    top_product = by_price[0] if by_price else None
-    side_tiles = by_price[1:3]
+    manually_featured = [c for c in cards_available if c["featured"]]
+    top_product = manually_featured[0] if manually_featured else (by_price[0] if by_price else None)
+    remaining = [c for c in by_price if not top_product or c["id"] != top_product["id"]]
+    side_tiles = remaining[:2]
 
     products_json = json.dumps(cards, ensure_ascii=False)
     chips_json = json.dumps(
