@@ -185,6 +185,31 @@ main {
   border-radius: 20px;
 }
 
+.status-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 9px;
+  border-radius: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.status-badge.status-sold { background: #8b342a; }
+.status-badge.status-coming { background: #3a6b8a; }
+
+.product-card.is-sold .product-img img {
+  filter: grayscale(70%);
+  opacity: 0.65;
+}
+.product-price.product-price-sold {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.product-card.is-coming-soon .product-img img { opacity: 0.85; }
+
 .product-info { padding: 10px 12px 14px; }
 .product-name {
   margin: 0 0 6px;
