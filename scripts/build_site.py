@@ -239,12 +239,12 @@ def main():
     <div class="hero-copy">
       <div class="eyebrow-pill"><span class="dot"></span>{unique_items} items in stock</div>
       <h1>Premium brands.<br>Outlet prices.</h1>
-      <p class="hero-body">Overstock, open-box and customer-return inventory from name brands —
-      footwear, apparel, electronics, home essentials and more. Every item is opened, tested
-      and condition-tagged.</p>
+      <p class="hero-body">Name-brand overstock, open-box and customer returns —
+      footwear, apparel, electronics and home essentials. Every item inspected, graded and
+      priced well below retail.</p>
       <div class="hero-buttons">
         <a href="#catalogue" class="btn-primary">Browse the catalogue</a>
-        <a href="#how-it-works" class="btn-secondary">How it works</a>
+        <a href="#how-it-works" class="btn-secondary">How buying works</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><strong>{unique_items}</strong><span>Unique items</span></div>
@@ -254,7 +254,7 @@ def main():
       </div>
     </div>
     <div class="hero-visual">
-      <div class="top-product-bar">Today's top product — {esc(top_product['title']) if top_product else ''} · {esc(top_product['priceLabel']) if top_product else ''}</div>
+      <div class="top-product-bar">TODAY'S TOP PRODUCT</div>
       <div class="hero-feature">{top_img}</div>
       <div class="hero-tiles">{tile_imgs}</div>
     </div>
@@ -490,7 +490,7 @@ img{display:block;max-width:100%;}
 .stat strong{display:block;font-family:'Source Serif 4',serif;font-weight:700;font-size:30px;color:var(--leaf-light);}
 .stat span{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(243,242,228,.7);margin-top:4px;}
 .hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;}
-.top-product-bar{grid-column:1/-1;background:rgba(243,242,228,.06);border:1px solid rgba(243,242,228,.14);border-radius:16px;padding:14px 16px;color:var(--paper);font-size:13px;font-weight:600;}
+.top-product-bar{grid-column:1/-1;background:rgba(243,242,228,.06);border:1px solid rgba(243,242,228,.14);border-radius:16px;padding:14px 16px;color:rgba(243,242,228,.7);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;}
 .hero-feature{grid-column:1/-1;aspect-ratio:16/11;background:var(--paper-sunk);border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .hero-feature img{width:100%;height:100%;object-fit:cover;}
 .hero-tiles{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
