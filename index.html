@@ -3,1203 +3,727 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thrazha Finds | Quality Overstock &amp; Auction Deals</title>
-<meta name="description" content="Thrazha Finds — quality overstock, returns, and auction finds at honest prices. New arrivals added regularly.">
+<title>Thrazha Bazaar | Overstock, Returns &amp; Auction Finds</title>
+<meta name="description" content="Thrazha Bazaar — premium-brand overstock, open-box and customer-return inventory at outlet prices. New items every week. A Thrazha International company.">
+<link rel="icon" href="thrazha-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --olive:#3E4C1E; --ink:#1B1E10; --olive-mid:#6E8038; --olive-deep-ink:#4E5A22;
+  --leaf:#A8C23F; --leaf-hover:#B9D256; --leaf-light:#C9DE86;
+  --paper:#FDFCF4; --paper-sunk:#F3F2E4; --line:#E0DECB; --body-muted:#4F5340; --meta-muted:#63644B;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,sans-serif;font-size:16px;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+h1,h2{font-family:'Source Serif 4',serif;font-weight:700;text-wrap:pretty;margin:0;}
+p{margin:0;text-wrap:pretty;}
+button,select,input,textarea{font-family:inherit;}
+img{display:block;max-width:100%;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--olive-deep-ink);margin-bottom:8px;}
+.eyebrow-dark{color:var(--leaf-light);}
+
+.announce{background:var(--ink);color:#F3F2E4;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;padding:10px 20px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.ann-accent{color:var(--leaf-light);}
+
+.site-header{position:sticky;top:0;z-index:40;background:rgba(253,252,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:1280px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:40px;height:40px;object-fit:contain;}
+.brand-text{display:flex;flex-direction:column;}
+.brand-word{font-family:Cinzel,serif;font-weight:700;font-size:18px;letter-spacing:.06em;}
+.brand-sub{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--meta-muted);}
+.main-nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.main-nav a{font-size:14px;font-weight:600;}
+.main-nav a.nav-out{color:var(--meta-muted);}
+.watchlist-pill{background:var(--paper-sunk);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;cursor:pointer;}
+.watchlist-count{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;background:var(--olive);color:var(--paper-sunk);font-family:'IBM Plex Mono',monospace;font-size:12px;}
+
+.hero{background:var(--olive);background-image:radial-gradient(circle at 82% 18%, rgba(168,194,63,.22), transparent 55%);padding:76px 20px 64px;}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(243,242,228,.3);border-radius:999px;padding:7px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--leaf-light);margin-bottom:20px;}
+.eyebrow-pill .dot{width:7px;height:7px;border-radius:999px;background:var(--leaf);}
+.hero h1{color:var(--paper);font-size:clamp(40px,6.4vw,74px);line-height:1.02;letter-spacing:-.025em;margin-bottom:22px;}
+.hero-body{color:rgba(243,242,228,.82);font-size:clamp(16px,1.6vw,19px);line-height:1.6;max-width:46ch;margin-bottom:28px;}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+.btn-primary{background:var(--leaf);color:var(--ink);border-radius:10px;padding:15px 26px;font-weight:700;font-size:15px;}
+.btn-primary:hover{background:var(--leaf-hover);}
+.btn-secondary{border:1px solid rgba(243,242,228,.35);color:var(--paper);border-radius:10px;padding:15px 26px;font-weight:700;font-size:15px;}
+.btn-secondary:hover{border-color:var(--leaf-light);color:var(--leaf-light);}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border-top:1px solid rgba(243,242,228,.16);padding-top:22px;}
+.stat strong{display:block;font-family:'Source Serif 4',serif;font-weight:700;font-size:30px;color:var(--leaf-light);}
+.stat span{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(243,242,228,.7);margin-top:4px;}
+.hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;}
+.top-product-bar{grid-column:1/-1;background:rgba(243,242,228,.06);border:1px solid rgba(243,242,228,.14);border-radius:16px;padding:14px 16px;color:var(--paper);font-size:13px;font-weight:600;}
+.hero-feature{grid-column:1/-1;aspect-ratio:16/11;background:var(--paper-sunk);border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero-feature img{width:100%;height:100%;object-fit:cover;}
+.hero-tiles{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.hero-tile{aspect-ratio:1;background:var(--paper-sunk);border-radius:16px;overflow:hidden;}
+.hero-tile img{width:100%;height:100%;object-fit:cover;}
+
+.trust-strip{border-bottom:1px solid var(--line);}
+.trust-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;padding:26px 20px;}
+.trust-num{width:30px;height:30px;background:var(--paper-sunk);border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--olive-mid);margin-bottom:10px;}
+.trust-title{font-size:14px;font-weight:700;margin-bottom:4px;}
+.trust-body{font-size:13px;line-height:1.5;color:var(--meta-muted);}
+
+.arrivals{max-width:1280px;margin:0 auto;padding:52px 20px;}
+.arrivals-head,.vault-head,.cat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:24px;flex-wrap:wrap;}
+.arrivals h2,.vault-head h2{font-size:clamp(26px,3.2vw,38px);letter-spacing:-.02em;}
+.scroll-meta,.cat-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--meta-muted);}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;}
+.rail-card{flex:none;width:210px;scroll-snap-align:start;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);}
+.rail-img{position:relative;aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
+.rail-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
+.badge-new{position:absolute;top:8px;left:8px;background:var(--leaf);color:var(--ink);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 8px;border-radius:6px;}
+.rail-body{padding:13px 14px;}
+.rail-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--meta-muted);margin-bottom:4px;}
+.rail-title{font-size:13px;font-weight:600;line-height:1.35;margin-bottom:6px;}
+.rail-price{font-family:'Source Serif 4',serif;font-weight:700;font-size:16px;color:var(--olive);}
+
+.vault{background:var(--paper-sunk);padding:52px 20px;}
+.vault-head,.vault-grid{max-width:1280px;margin:0 auto;}
+.see-all{font-size:14px;font-weight:700;color:var(--olive);}
+.vault-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;}
+.feat-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+.feat-img{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
+.feat-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
+.feat-body{padding:14px 15px;display:flex;flex-direction:column;gap:4px;}
+.feat-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--meta-muted);}
+.feat-title{font-size:13px;font-weight:600;line-height:1.35;}
+.feat-price{font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;color:var(--olive);margin-bottom:8px;}
+.btn-reserve-solid{background:var(--olive);color:var(--paper-sunk);border:none;border-radius:8px;padding:10px 0;font-size:12px;font-weight:700;cursor:pointer;}
+.btn-reserve-solid:hover{background:var(--olive-mid);}
+
+.catalogue{max-width:1280px;margin:0 auto;padding:52px 20px 0;}
+.toolbar{position:sticky;top:68px;z-index:30;background:rgba(253,252,244,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 20px;margin:0 -20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.search-field{flex:1 1 240px;display:flex;align-items:center;gap:8px;background:var(--paper-sunk);border:1px solid var(--line);border-radius:10px;padding:10px 14px;}
+.search-slash{font-family:'IBM Plex Mono',monospace;color:var(--meta-muted);}
+.search-field input{border:none;background:none;outline:none;font-size:14px;flex:1;color:var(--ink);}
+.sort-select{background:var(--paper-sunk);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px;font-weight:600;}
+.chips{flex:1 1 100%;display:flex;gap:10px;overflow-x:auto;padding-top:2px;}
+.chip{flex:none;border-radius:999px;padding:9px 15px;font-size:13px;font-weight:700;background:var(--paper);border:1px solid var(--line);color:var(--body-muted);cursor:pointer;}
+.chip.active{background:var(--olive);border-color:var(--olive);color:var(--paper-sunk);}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;padding:28px 0 64px;}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;animation:fadeUp .35s ease;}
+.card:hover{border-color:var(--olive);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.card-img{position:relative;aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
+.card-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
+.condition-chip{position:absolute;top:8px;left:8px;background:rgba(27,30,16,.88);color:#F3F2E4;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 8px;border-radius:6px;}
+.save-btn{position:absolute;top:8px;right:8px;border-radius:999px;font-size:10px;font-weight:700;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);background:rgba(253,252,244,.92);color:var(--body-muted);cursor:pointer;}
+.save-btn.saved{background:var(--olive);border-color:var(--olive);color:#F3F2E4;}
+.card-body{padding:13px 15px;display:flex;flex-direction:column;gap:3px;flex:1;}
+.card-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--meta-muted);}
+.card-title{font-size:13px;font-weight:600;line-height:1.35;}
+.card-price{font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;color:var(--olive);margin-top:2px;}
+.card-meta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--meta-muted);}
+.card-status{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--meta-muted);text-transform:uppercase;}
+.btn-outline{margin-top:auto;border:1px solid var(--olive);background:var(--paper-sunk);color:var(--olive);border-radius:8px;padding:10px 0;font-size:12px;font-weight:700;cursor:pointer;}
+.btn-outline:hover{background:var(--olive);color:var(--paper-sunk);}
+.btn-outline[disabled]{opacity:.5;cursor:not-allowed;}
+
+.empty-state{border:1px dashed var(--line);border-radius:16px;padding:70px 20px;text-align:center;margin-bottom:64px;}
+.empty-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.empty-body{font-size:14px;color:var(--meta-muted);margin-bottom:18px;}
+.btn-clear{background:var(--olive);color:var(--paper-sunk);border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;}
+
+.how-it-works{background:var(--ink);padding:52px 20px;max-width:1280px;margin:0 auto;border-radius:0;}
+.how-it-works h2{color:var(--paper);font-size:clamp(26px,3.2vw,38px);margin-bottom:26px;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.step{border:1px solid rgba(243,242,236,.16);border-radius:16px;padding:26px;}
+.step-num{font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;color:var(--leaf-light);margin-bottom:10px;}
+.step-title{color:var(--paper);font-weight:700;font-size:15px;margin-bottom:6px;}
+.step-body{color:rgba(243,242,228,.7);font-size:13px;line-height:1.5;}
+
+.pickup{max-width:1280px;margin:0 auto;padding:52px 20px;}
+.pickup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px;}
+.term-row{display:flex;justify-content:space-between;gap:10px;background:var(--paper-sunk);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+.term-label{font-weight:700;font-size:13px;}
+.term-value{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--meta-muted);}
+.btn-outline-dark{display:inline-block;margin-top:6px;border:1px solid var(--olive);color:var(--olive);border-radius:8px;padding:12px 20px;font-size:13px;font-weight:700;}
+.btn-outline-dark:hover{background:var(--olive);color:var(--paper-sunk);}
+.stock-alerts{background:var(--paper-sunk);border-radius:18px;padding:30px;}
+.stock-alerts h3{font-family:'Source Serif 4',serif;font-size:20px;margin-bottom:8px;}
+.alerts-body{font-size:13px;color:var(--meta-muted);margin-bottom:18px;}
+#alertForm{display:flex;flex-direction:column;gap:10px;}
+#alertForm input,#alertForm select{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:14px;}
+#alertForm button{background:var(--leaf);color:var(--ink);border:none;border-radius:9px;padding:13px;font-weight:700;font-size:14px;cursor:pointer;}
+#alertForm button:hover{background:var(--leaf-hover);}
+
+.site-footer{background:var(--olive);color:var(--paper);padding:52px 20px 20px;}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;padding-bottom:26px;}
+.footer-mark{width:38px;height:38px;object-fit:contain;margin-bottom:10px;}
+.footer-word{font-family:Cinzel,serif;font-weight:700;font-size:17px;letter-spacing:.06em;display:block;margin-bottom:8px;}
+.footer-tag{font-size:13px;color:rgba(243,242,228,.7);max-width:32ch;}
+.footer-heading{font-weight:700;font-size:13px;margin-bottom:10px;}
+.footer-col a{display:block;font-size:14px;color:rgba(243,242,228,.82);margin-bottom:8px;}
+.legal-bar{max-width:1280px;margin:0 auto;border-top:1px solid rgba(243,242,228,.16);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(243,242,228,.6);}
+
+.sheet-overlay{position:fixed;inset:0;background:rgba(27,30,16,.55);backdrop-filter:blur(4px);z-index:50;display:none;align-items:flex-end;justify-content:center;}
+.sheet-overlay.open{display:flex;}
+.sheet{background:var(--paper);width:100%;max-width:520px;max-height:92vh;overflow-y:auto;border-radius:18px 18px 0 0;animation:fadeUp .25s ease;}
+.sheet-header{display:flex;gap:14px;padding:20px;border-bottom:1px solid var(--line);align-items:flex-start;}
+.sheet-thumb{width:76px;height:76px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;}
+.sheet-info{flex:1;}
+.sheet-meta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--meta-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.sheet-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.sheet-price{font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;color:var(--olive);}
+.sheet-close{background:none;border:none;font-size:24px;line-height:1;cursor:pointer;color:var(--body-muted);}
+.sheet-body{padding:20px;}
+#reserveForm{display:flex;flex-direction:column;gap:10px;}
+#reserveForm input,#reserveForm select,#reserveForm textarea{background:var(--paper-sunk);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:14px;}
+.btn-hold{background:var(--olive);color:var(--paper-sunk);border:none;border-radius:9px;padding:14px;font-weight:700;font-size:14px;cursor:pointer;margin-top:4px;}
+.btn-hold:hover{background:var(--olive-mid);}
+.sheet-fineprint{font-size:12px;color:var(--meta-muted);text-align:center;margin-top:4px;}
+.sheet-done{padding:36px 24px;text-align:center;}
+.done-title{font-size:18px;font-weight:700;margin-bottom:8px;}
+.done-body{font-size:14px;color:var(--meta-muted);margin-bottom:20px;}
+
+@media (max-width:640px){
+  .hero-inner{gap:36px;}
+  .footer-grid{gap:26px;}
+}
+
+</style>
 </head>
 <body>
 
-<header class="site-header">
+<div class="announce">
+  <span>New items added weekly</span>
+  <span class="ann-accent">Inspected before listing</span>
+  <span>Local pickup · Shipping Canada-wide</span>
+</div>
+
+<header class="site-header" id="top">
   <div class="header-inner">
-    <a href="#top" class="logo">Thrazha <span>Finds</span></a>
+    <a href="#top" class="brand">
+      <img src="thrazha-logo.png" alt="Thrazha" class="brand-mark">
+      <span class="brand-text">
+        <span class="brand-word">THRAZHA BAZAAR</span>
+        <span class="brand-sub">A Thrazha International company</span>
+      </span>
+    </a>
     <nav class="main-nav">
-      <a href="#footwear">👟 Footwear</a>
-<a href="#apparel-clothing">👕 Apparel &amp; Clothing</a>
-<a href="#electronics">🎧 Electronics</a>
-<a href="#home-kitchen">🍽️ Home &amp; Kitchen</a>
-<a href="#bags-accessories">👜 Bags &amp; Accessories</a>
-<a href="#baby-kids">🍼 Baby &amp; Kids</a>
-<a href="#health-fitness">🩹 Health &amp; Fitness</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pickup">Pickup &amp; delivery</a>
+      <a href="https://www.thrazha.ca" class="nav-out">Thrazha.ca ↗</a>
+      <button class="watchlist-pill" id="watchlistBtn" type="button">
+        Watchlist <span class="watchlist-count" id="watchlistCount">0</span>
+      </button>
     </nav>
   </div>
 </header>
 
-<section class="hero" id="top">
+<section class="hero">
   <div class="hero-inner">
-    <h1>Quality Finds. Honest Prices.</h1>
-    <p>Overstock, returns, and auction-sourced goods — footwear, apparel, electronics, home essentials and more. Every item priced to move.</p>
-    <div class="hero-stats">
-      <div><strong>159</strong><span>Unique Items</span></div>
-      <div><strong>166</strong><span>In Stock</span></div>
-      <div><strong>7</strong><span>Categories</span></div>
+    <div class="hero-copy">
+      <div class="eyebrow-pill"><span class="dot"></span>159 items in stock</div>
+      <h1>Premium brands.<br>Outlet prices.</h1>
+      <p class="hero-body">Overstock, open-box and customer-return inventory from name brands —
+      footwear, apparel, electronics, home essentials and more. Every item is opened, tested
+      and condition-tagged.</p>
+      <div class="hero-buttons">
+        <a href="#catalogue" class="btn-primary">Browse the catalogue</a>
+        <a href="#how-it-works" class="btn-secondary">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>159</strong><span>Unique items</span></div>
+        <div class="stat"><strong>166</strong><span>Units in stock</span></div>
+        <div class="stat"><strong>$1</strong><span>Lowest price</span></div>
+        <div class="stat"><strong>7</strong><span>Departments</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="top-product-bar">Today's top product — Apple 2022 Macbook AIR 13.6-INCH · $630</div>
+      <div class="hero-feature"><img src="lot4203.jpg" alt="Apple 2022 Macbook AIR 13.6-INCH" loading="lazy"></div>
+      <div class="hero-tiles"><div class="hero-tile"><img src="lot4954.jpg" alt="NA Uppababy MINU V3 Travel Stroller - Stone BLUE" loading="lazy"></div><div class="hero-tile"><img src="lot6410.jpg" alt="Garmin Forerunner 945 LTE Smartwatch, Black" loading="lazy"></div></div>
     </div>
   </div>
 </section>
 
-<main>
-
-<section class="category-section" id="footwear">
-  <h2 class="category-title">👟 Footwear <span class="category-count">(63)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot10469.jpg" alt="10 Adidas Unisex-adult Samba Indoor Sneaker SIZE-1" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10 Adidas Unisex-adult Samba Indoor Sneaker SIZE-1</p>
-        <p class="product-price">$9.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7091.jpg" alt="10 KEEN Pyrenees MID Height Waterproof Boots" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10 KEEN Pyrenees MID Height Waterproof Boots</p>
-        <p class="product-price">$10.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11547.jpg" alt="10 Under Armour Women&#x27;s Charged Assert 11 Shoes" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10 Under Armour Women&#x27;s Charged Assert 11 Shoes</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11139.jpg" alt="10.5 Clarks MENS Whiddon CAP Oxford" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10.5 Clarks MENS Whiddon CAP Oxford</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9991.jpg" alt="10.5 Adidas Duramo SL 2 Running CORE Black 10.5" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10.5 Adidas Duramo SL 2 Running CORE Black 10.5</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot12117.jpg" alt="10.5 Adidas Terrex FREE Hiker 2.0 GTX Walking SHOE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">10.5 Adidas Terrex FREE Hiker 2.0 GTX Walking SHOE</p>
-        <p class="product-price">$15.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10425.jpg" alt="11 Children KEEN KIDS Targhee 4 MID Boots" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">11 Children KEEN KIDS Targhee 4 MID Boots</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5802.jpg" alt="12 COLE HAAN Nantucket Cross Strap Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">12 COLE HAAN Nantucket Cross Strap Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11935.jpg" alt="12.5W Amazon Essentials Women&#x27;s Shogun Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">12.5W Amazon Essentials Women&#x27;s Shogun Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9980.jpg" alt="12M Dockers Shoes Newpage -90-21389 DK56 Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">12M Dockers Shoes Newpage -90-21389 DK56 Sandal</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6488.jpg" alt="3 KEEN Unisex-child Seacamp 2 Cnx-c Sandals" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">3 KEEN Unisex-child Seacamp 2 Cnx-c Sandals</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2328.jpg" alt="37 Women&#x27;s Running Shoes SIZE 37" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">37 Women&#x27;s Running Shoes SIZE 37</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11788.jpg" alt="40.5 Nortiv 8 Women&#x27;s Lightweight Hiking Shoes" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">40.5 Nortiv 8 Women&#x27;s Lightweight Hiking Shoes</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6396.jpg" alt="42.5 DC MENS Court Graffik" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">42.5 DC MENS Court Graffik</p>
-        <p class="product-price">$13.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11527.jpg" alt="44.5 PUMA MENS Future 9 PLAY TURF Soccer Cleats" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">44.5 PUMA MENS Future 9 PLAY TURF Soccer Cleats</p>
-        <p class="product-price">$18.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2169.jpg" alt="5 Franco Sarto Carolynn Loafers Slip-on Tassel" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">5 Franco Sarto Carolynn Loafers Slip-on Tassel</p>
-        <p class="product-price">$8.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5492.jpg" alt="5,5 Amazon Essentials Women&#x27;s Shogun Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">5,5 Amazon Essentials Women&#x27;s Shogun Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7890.jpg" alt="5.5 Skechers Women&#x27;s Breathe-easy Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">5.5 Skechers Women&#x27;s Breathe-easy Sneaker</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11278.jpg" alt="6 Madden GIRL Womens Bodiee Slide Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">6 Madden GIRL Womens Bodiee Slide Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9096.jpg" alt="6 Skechers Womens D&#x27;lites-chromatic Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">6 Skechers Womens D&#x27;lites-chromatic Sneaker</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10833.jpg" alt="6 Skechers Womens UNO - Shimmer AWAY Sneakers" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">6 Skechers Womens UNO - Shimmer AWAY Sneakers</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9052.jpg" alt="6.5 NEW Balance Fresh FOAM ROAV V1 Running SHOE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">6.5 NEW Balance Fresh FOAM ROAV V1 Running SHOE</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11858.jpg" alt="6W Clarks Womens Elliotte SAIL Moccasin" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">6W Clarks Womens Elliotte SAIL Moccasin</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot66.jpg" alt="7 Adidas Terrex Anylander MID Hiking Rain.rdy" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7 Adidas Terrex Anylander MID Hiking Rain.rdy</p>
-        <p class="product-price">$12.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5119.jpg" alt="7 Clarks MENS Sailview STEP Loafer" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7 Clarks MENS Sailview STEP Loafer</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10629.jpg" alt="7 COLE HAAN MENS Grandpro LUXE Slip-on Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7 COLE HAAN MENS Grandpro LUXE Slip-on Sneaker</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8372.jpg" alt="7 Stacy Adams MENS Santos" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7 Stacy Adams MENS Santos</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5272.jpg" alt="7.5 Betsey Johnson Womens Clark PUMP SIZE-7.5" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7.5 Betsey Johnson Womens Clark PUMP SIZE-7.5</p>
-        <p class="product-price">$15.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot3297.jpg" alt="7.5 Skechers MENS Summit Hands FREE Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7.5 Skechers MENS Summit Hands FREE Sneaker</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6566.jpg" alt="7.5 Skechers Women&#x27;s Hands FREE Slip-ins Summits" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7.5 Skechers Women&#x27;s Hands FREE Slip-ins Summits</p>
-        <p class="product-price">$11.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6729.jpg" alt="7.5M Steve Madden Women&#x27;s Locke Heeled Sandals" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7.5M Steve Madden Women&#x27;s Locke Heeled Sandals</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot15215.jpg" alt="7M Vince Camuto Womens Eltera FLAT Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">7M Vince Camuto Womens Eltera FLAT Sandal</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11671.jpg" alt="8 Amazon Essentials Women&#x27;s Shogun Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 Amazon Essentials Women&#x27;s Shogun Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><div class="placeholder-img"><span>👟</span></div></div>
-      <div class="product-info">
-        <p class="product-name">8 Felix &amp; Flora Toddler Girls Sandals Closed TOE</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6959.jpg" alt="8 Jewel Badgley Mischka Celine Heeled Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 Jewel Badgley Mischka Celine Heeled Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6374.jpg" alt="8 NINE WEST GRISELDA3-BLACK/NB Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 NINE WEST GRISELDA3-BLACK/NB Sandal</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot12830.jpg" alt="8 Skechers Tempo Waterproof GOLF SHOE Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 Skechers Tempo Waterproof GOLF SHOE Sneaker</p>
-        <p class="product-price">$17.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot12002.jpg" alt="8 TEVA Womens Hurricane Drift Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 TEVA Womens Hurricane Drift Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11534.jpg" alt="8 TOMS Women&#x27;s Classic Wedge Espadrille Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8 TOMS Women&#x27;s Classic Wedge Espadrille Sandal</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11594.jpg" alt="8.5 W Lifestride Womens Miami Wedge Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">8.5 W Lifestride Womens Miami Wedge Sandal</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10675.jpg" alt="9 Skechers Arcade ARCH FIT Arcata Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">9 Skechers Arcade ARCH FIT Arcata Sneaker</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10395.jpg" alt="9 Skechers Reggae SLIM Slip-ons" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">9 Skechers Reggae SLIM Slip-ons</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4595.jpg" alt="9.5 NEW Balance Fresh FOAM 680 V9 Running SHOE SIZ" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">9.5 NEW Balance Fresh FOAM 680 V9 Running SHOE SIZ</p>
-        <p class="product-price">$12.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot12223.jpg" alt="9.5US Skechers MENS Gowalk FLEX Walking Shoes" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">9.5US Skechers MENS Gowalk FLEX Walking Shoes</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4172.jpg" alt="9M Naturalizer BRIDGET4 Strappy Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">9M Naturalizer BRIDGET4 Strappy Sandal</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot739.jpg" alt="Carter&#x27;s Simple JOYS Kimmie NORA Jelly Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Carter&#x27;s Simple JOYS Kimmie NORA Jelly Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot13365.jpg" alt="Clarks Breeze SEA FLIP Flops Sandals Flip-flop" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Clarks Breeze SEA FLIP Flops Sandals Flip-flop</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6452.jpg" alt="Merrell MENS Promorph Trail Running SHOE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Merrell MENS Promorph Trail Running SHOE</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot16015.jpg" alt="NEW Balance Fresh FOAM Arishi V4 Running SHOE 7.5" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NEW Balance Fresh FOAM Arishi V4 Running SHOE 7.5</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8243.jpg" alt="SAM Edelman Womens Poppy Sneakers Sneaker" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">SAM Edelman Womens Poppy Sneakers Sneaker</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9009.jpg" alt="Skechers Reggae Women&#x27;s Timeless Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Skechers Reggae Women&#x27;s Timeless Sandal</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2299.jpg" alt="UK 4 Orlimar Womens Ladies GOLF Sandals Sandals" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">UK 4 Orlimar Womens Ladies GOLF Sandals Sandals</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5966.jpg" alt="UK 8 Skechers Womens On-the-go 600 Dainty Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">UK 8 Skechers Womens On-the-go 600 Dainty Sandal</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6933.jpg" alt="US 10.5W NEW Balance Dynasoft Nergize V2 Trainer" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 10.5W NEW Balance Dynasoft Nergize V2 Trainer</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10586.jpg" alt="US 12M Clarks MENS Derby Lace-up" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 12M Clarks MENS Derby Lace-up</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot3312.jpg" alt="US 6W Clarks Womens Elliotte SAIL Moccasin" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 6W Clarks Womens Elliotte SAIL Moccasin</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5017.jpg" alt="US 7.5 Reebok Classic Princess WIDE D Sneakers" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 7.5 Reebok Classic Princess WIDE D Sneakers</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11622.jpg" alt="US 8.5W Amazon Essentials Belice Slip-on Ballet FL" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 8.5W Amazon Essentials Belice Slip-on Ballet FL</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11113.jpg" alt="US- 10.5M/12W Under Armour Unisex-adult Lockdown 7" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US- 10.5M/12W Under Armour Unisex-adult Lockdown 7</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot514.jpg" alt="US-7 Clarks Breeze SEA FLIP Flops Sandals Flip-flo" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US-7 Clarks Breeze SEA FLIP Flops Sandals Flip-flo</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9949.jpg" alt="US10 Clarks MENS Desert BOOT Chukka BOOT" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US10 Clarks MENS Desert BOOT Chukka BOOT</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot778.jpg" alt="US11 Amazon Essentials Belice Slip-on Ballet FLAT" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US11 Amazon Essentials Belice Slip-on Ballet FLAT</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7846.jpg" alt="USA 9 Under Armour Ignite PRO 8 Slides Sandal" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">USA 9 Under Armour Ignite PRO 8 Slides Sandal</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
+<section class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-cell"><div class="trust-num">01</div><p class="trust-title">Graded before listing</p><p class="trust-body">Every item is opened, tested and condition-tagged before it goes up.</p></div>
+    <div class="trust-cell"><div class="trust-num">02</div><p class="trust-title">Hold it for 48 hours</p><p class="trust-body">Reserve any item and we hold it — no payment required up front.</p></div>
+    <div class="trust-cell"><div class="trust-num">03</div><p class="trust-title">One-of-one stock</p><p class="trust-body">Most items are single units. Once it's reserved, it's gone.</p></div>
+    <div class="trust-cell"><div class="trust-num">04</div><p class="trust-title">Backed by Thrazha</p><p class="trust-body">Part of Thrazha International Inc., trading since day one on straight answers.</p></div>
   </div>
-</section>
-<section class="category-section" id="apparel-clothing">
-  <h2 class="category-title">👕 Apparel &amp; Clothing <span class="category-count">(45)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot9035.jpg" alt="14 LEVI Strauss Signature GOLD Shaping Jeans" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">14 LEVI Strauss Signature GOLD Shaping Jeans</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8129.jpg" alt="18 Months Gerber Unisex BABY 8-PACK Short Sleeve O" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">18 Months Gerber Unisex BABY 8-PACK Short Sleeve O</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7730.jpg" alt="18 X RAY BOYS RBS-19021CARGO Shorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">18 X RAY BOYS RBS-19021CARGO Shorts</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6671.jpg" alt="28 Levi&#x27;s Womens Cinch Mid-thigh Shortshorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">28 Levi&#x27;s Womens Cinch Mid-thigh Shortshorts</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7624.jpg" alt="30 Levi&#x27;s Womens Cinch Mid-thigh Shortshorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">30 Levi&#x27;s Womens Cinch Mid-thigh Shortshorts</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8029.jpg" alt="33 Levi&#x27;s Womens 501 Original High-rise Shorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">33 Levi&#x27;s Womens 501 Original High-rise Shorts</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot182.jpg" alt="34 Amazon Essentials Men&#x27;s Cargo Shorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">34 Amazon Essentials Men&#x27;s Cargo Shorts</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5325.jpg" alt="36 Amazon Essentials Men&#x27;s Cargo Shorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">36 Amazon Essentials Men&#x27;s Cargo Shorts</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot3640.jpg" alt="4 XL Nautica Men&#x27;s Solid CREW NECK Pocket T-shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">4 XL Nautica Men&#x27;s Solid CREW NECK Pocket T-shirt</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8122.jpg" alt="5T Carter&#x27;s BABY Girls&#x27; KNIT Shorts 3-PACK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">5T Carter&#x27;s BABY Girls&#x27; KNIT Shorts 3-PACK</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot531.jpg" alt="Fruit OF THE LOOM Men&#x27;s 6-PACK V-neck T-shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Fruit OF THE LOOM Men&#x27;s 6-PACK V-neck T-shirt</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6057.jpg" alt="L Amazon Essentials Womens Slim-fit TANK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">L Amazon Essentials Womens Slim-fit TANK</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1972.jpg" alt="L Fruit OF THE LOOM Men&#x27;s Coolzone Boxer Briefs" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">L Fruit OF THE LOOM Men&#x27;s Coolzone Boxer Briefs</p>
-        <p class="product-price">$8.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4625.jpg" alt="L Fruit OF THE LOOM MENS Comfort Casual Boxers" loading="lazy"><span class="qty-badge">×2</span></div>
-      <div class="product-info">
-        <p class="product-name">L Fruit OF THE LOOM MENS Comfort Casual Boxers</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2038.jpg" alt="L Hanes Men&#x27;s Ribbed TANK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">L Hanes Men&#x27;s Ribbed TANK</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot489.jpg" alt="L Hanes Men&#x27;s Undershirt - Sweat Blocking TEE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">L Hanes Men&#x27;s Undershirt - Sweat Blocking TEE</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4427.jpg" alt="L NIKE BOYS Dri-fit Boxer Briefs (3-PACK)" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">L NIKE BOYS Dri-fit Boxer Briefs (3-PACK)</p>
-        <p class="product-price">$10.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2702.jpg" alt="Large Harry Potter MENS T-shirtt-shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large Harry Potter MENS T-shirtt-shirt</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7164.jpg" alt="Large JACK &amp; Jones MENS POLO Sspolo Shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large JACK &amp; Jones MENS POLO Sspolo Shirt</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4564.jpg" alt="Large Jerzees 4997_AP JZ 9.5 OZ 50/50 P/O FLC HOO" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large Jerzees 4997_AP JZ 9.5 OZ 50/50 P/O FLC HOO</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot186.jpg" alt="Large Calvin Klein MENS 7-PACK Boxer Briefs" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large Calvin Klein MENS 7-PACK Boxer Briefs</p>
-        <p class="product-price">$14.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2447.jpg" alt="Large Hanes Men&#x27;s Comfortsoft Knitboxer 4-PACK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large Hanes Men&#x27;s Comfortsoft Knitboxer 4-PACK</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1954.jpg" alt="Large Hanes Men&#x27;s Ribbed TANK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Large Hanes Men&#x27;s Ribbed TANK</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4426.jpg" alt="M Amazon Essentials Men&#x27;s Full-zip Hoodie" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">M Amazon Essentials Men&#x27;s Full-zip Hoodie</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot3950.jpg" alt="M Hanes Men&#x27;s 4 PACK Freshiq Cotton Woven Boxer" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">M Hanes Men&#x27;s 4 PACK Freshiq Cotton Woven Boxer</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot13.jpg" alt="M Hanes Men&#x27;s Ribbed TANK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">M Hanes Men&#x27;s Ribbed TANK</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2252.jpg" alt="M TENA Men&#x27;s Washable Boxers, MED Black" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">M TENA Men&#x27;s Washable Boxers, MED Black</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2098.jpg" alt="Medium Tommy Hilfiger Collared LONG Sleeve Shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Medium Tommy Hilfiger Collared LONG Sleeve Shirt</p>
-        <p class="product-price">$9.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6035.jpg" alt="Medium Women&#x27;s Cotton Short Pyjama Night Short XS" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Medium Women&#x27;s Cotton Short Pyjama Night Short XS</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot622.jpg" alt="Medium Fruit OF THE LOOM Men&#x27;s CREW &amp; A T-shirts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Medium Fruit OF THE LOOM Men&#x27;s CREW &amp; A T-shirts</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot368.jpg" alt="Medium Hanes Men&#x27;s Comfortsoft Knitboxer 4-PACK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Medium Hanes Men&#x27;s Comfortsoft Knitboxer 4-PACK</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4668.jpg" alt="Medium Tacvasen Men&#x27;s Quick DRY Cargo Shorts" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Medium Tacvasen Men&#x27;s Quick DRY Cargo Shorts</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6461.jpg" alt="NA Amazon Essentials MENS Slim-fit V-neck T-shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NA Amazon Essentials MENS Slim-fit V-neck T-shirt</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1757.jpg" alt="S Hanes Men&#x27;s Ribbed TANK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">S Hanes Men&#x27;s Ribbed TANK</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2516.jpg" alt="S NIKE Breaker Essential Brief Trunks" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">S NIKE Breaker Essential Brief Trunks</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4631.jpg" alt="SAXX Men&#x27;s Non-stop Cotton Trunk 2-PACK Small" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">SAXX Men&#x27;s Non-stop Cotton Trunk 2-PACK Small</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1831.jpg" alt="Small Gildan Unisex Fleece ZIP Hoodie G18600" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Small Gildan Unisex Fleece ZIP Hoodie G18600</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot709.jpg" alt="Small Hanes Men&#x27;s Boxer Briefs, Stretch Cotton" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Small Hanes Men&#x27;s Boxer Briefs, Stretch Cotton</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2289.jpg" alt="Small Philcos CFL Saskatchewan Roughriders T-shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Small Philcos CFL Saskatchewan Roughriders T-shirt</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10617.jpg" alt="US 30X32 Guess Womens Bellflower WIDE LEG Jeanjean" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">US 30X32 Guess Womens Bellflower WIDE LEG Jeanjean</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot836.jpg" alt="Us-xl Tacvasen Men&#x27;s RASH Guard UPF 50+ Shirt" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Us-xl Tacvasen Men&#x27;s RASH Guard UPF 50+ Shirt</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1959.jpg" alt="XL Fruit OF THE LOOM MENS Comfort Casual Boxers" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">XL Fruit OF THE LOOM MENS Comfort Casual Boxers</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2246.jpg" alt="XL Hanes MENS Essentials Muscle T-shirt PACK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">XL Hanes MENS Essentials Muscle T-shirt PACK</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1948.jpg" alt="XXL Men&#x27;s Cotton GYM TANK Tops, Sleeveless Workout" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">XXL Men&#x27;s Cotton GYM TANK Tops, Sleeveless Workout</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot171.jpg" alt="Youth 14/16 Brooklyn Vertical BOYS 4-PACK Undershi" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Youth 14/16 Brooklyn Vertical BOYS 4-PACK Undershi</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="category-section" id="electronics">
-  <h2 class="category-title">🎧 Electronics <span class="category-count">(12)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot4203.jpg" alt="Apple 2022 Macbook AIR 13.6-INCH" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Apple 2022 Macbook AIR 13.6-INCH</p>
-        <p class="product-price">$630.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot15695.jpg" alt="Apple Iphone 12 64GB Black - Unlocked" loading="lazy"><span class="qty-badge">×4</span></div>
-      <div class="product-info">
-        <p class="product-name">Apple Iphone 12 64GB Black - Unlocked</p>
-        <p class="product-price">$57.50 – $70.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11303.jpg" alt="Apple Iphone 12, 64GB, BLUE (renewed)" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Apple Iphone 12, 64GB, BLUE (renewed)</p>
-        <p class="product-price">$90.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9780.jpg" alt="DELL Premier Keyboard KM7321W (renewed)" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">DELL Premier Keyboard KM7321W (renewed)</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4258.jpg" alt="Kvidio Bluetooth Headphones Wireless Over-ear" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Kvidio Bluetooth Headphones Wireless Over-ear</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7377.jpg" alt="Leemc Wireless Earbuds, 5.4 BT, 80HR Playtime" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Leemc Wireless Earbuds, 5.4 BT, 80HR Playtime</p>
-        <p class="product-price">$7.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5212.jpg" alt="Logitech MK270 Keyboard &amp; Mouse - ROSE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Logitech MK270 Keyboard &amp; Mouse - ROSE</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9737.jpg" alt="Logitech MK335 Wireless Keyboard Mouse Combo" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Logitech MK335 Wireless Keyboard Mouse Combo</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6834.jpg" alt="SONY Linkbuds CLIP Open-ear Earbuds, Lavender" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">SONY Linkbuds CLIP Open-ear Earbuds, Lavender</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1406.jpg" alt="Steelseries Arctis NOVA 3X Wireless Headset" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Steelseries Arctis NOVA 3X Wireless Headset</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2567.jpg" alt="Steelseries Arctis NOVA 7X Wireless Headset" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Steelseries Arctis NOVA 7X Wireless Headset</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6692.jpg" alt="Turtle Beach Stealth 500 Wireless Headset" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Turtle Beach Stealth 500 Wireless Headset</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="category-section" id="home-kitchen">
-  <h2 class="category-title">🍽️ Home &amp; Kitchen <span class="category-count">(23)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot11797.jpg" alt="Amazon Basics 9 IN. Melamine Plate - 6 PC" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Amazon Basics 9 IN. Melamine Plate - 6 PC</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2617.jpg" alt="Amazon Basics Electric Coffee Grinder" loading="lazy"><span class="qty-badge">×2</span></div>
-      <div class="product-info">
-        <p class="product-name">Amazon Basics Electric Coffee Grinder</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2735.jpg" alt="Brita Filtering Water Bottle, 26 OZ, SEA Glass" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Brita Filtering Water Bottle, 26 OZ, SEA Glass</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6355.jpg" alt="CASA Platino Oversized KING Comforter Duvet" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">CASA Platino Oversized KING Comforter Duvet</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10492.jpg" alt="Chefman 1.8L Electric Kettle, 1500W" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Chefman 1.8L Electric Kettle, 1500W</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7640.jpg" alt="Conair GS7NXRC Upright Fabric Steamer 1200W" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Conair GS7NXRC Upright Fabric Steamer 1200W</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6415.jpg" alt="Danby DPA050E2BDB-6 7500 BTU A/C FAN" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Danby DPA050E2BDB-6 7500 BTU A/C FAN</p>
-        <p class="product-price">$22.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6378.jpg" alt="ELLO 32OZ Stainless Water Bottle, Insulated" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">ELLO 32OZ Stainless Water Bottle, Insulated</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11582.jpg" alt="Hydro Flask 32 OZ WIDE Mouth Bottle" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Hydro Flask 32 OZ WIDE Mouth Bottle</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10173.jpg" alt="Hydro Flask Micro Bottle - 6.7 OZ Harbor BLUE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Hydro Flask Micro Bottle - 6.7 OZ Harbor BLUE</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10089.jpg" alt="Magic Bullet Blender, Mixer &amp; Mini-processor" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Magic Bullet Blender, Mixer &amp; Mini-processor</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot9936.jpg" alt="Owala Freesip Insulated Steel Bottle 24OZ" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Owala Freesip Insulated Steel Bottle 24OZ</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4887.jpg" alt="Queen Comforter: DOWN Alternative, White" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Queen Comforter: DOWN Alternative, White</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7010.jpg" alt="Rowenta 2-IN-1 DUO Force IRON &amp; Steamer JR4031" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Rowenta 2-IN-1 DUO Force IRON &amp; Steamer JR4031</p>
-        <p class="product-price">$17.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10036.jpg" alt="Stanley Quencher H2.0 Tumbler 14 OZ, Handle" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Stanley Quencher H2.0 Tumbler 14 OZ, Handle</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1630.jpg" alt="Stanley Quencher H2.0 Tumbler 30 OZ WITH" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Stanley Quencher H2.0 Tumbler 30 OZ WITH</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11555.jpg" alt="Stanley Quick FLIP GO Bottle 24 OZ" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Stanley Quick FLIP GO Bottle 24 OZ</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7414.jpg" alt="T-fal Ingenio 11-PC POTS &amp; PANS Beige" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">T-fal Ingenio 11-PC POTS &amp; PANS Beige</p>
-        <p class="product-price">$45.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1714.jpg" alt="Thermos Funtainer 14OZ Bottle" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Thermos Funtainer 14OZ Bottle</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot5913.jpg" alt="Thermos ICON 24OZ Stainless Bottle WITH Spout" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Thermos ICON 24OZ Stainless Bottle WITH Spout</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1559.jpg" alt="Utopia Bedding KING 09X102INCH" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Utopia Bedding KING 09X102INCH</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot12259.jpg" alt="White DOWN Alternative Comforter - Full/medium" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">White DOWN Alternative Comforter - Full/medium</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1754.jpg" alt="Wishdeco Large SOUP Bowls, Ceramic 37OZ/1100ML" loading="lazy"><span class="qty-badge">×2</span></div>
-      <div class="product-info">
-        <p class="product-name">Wishdeco Large SOUP Bowls, Ceramic 37OZ/1100ML</p>
-        <p class="product-price">$4.00 – $7.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="category-section" id="bags-accessories">
-  <h2 class="category-title">👜 Bags &amp; Accessories <span class="category-count">(5)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot2817.jpg" alt="Amazfit Active 3 Smartwatch, GPS, Amoled" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Amazfit Active 3 Smartwatch, GPS, Amoled</p>
-        <p class="product-price">$62.50</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot943.jpg" alt="Galaxy Insulated Lunch BAG Cooler (blue)" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Galaxy Insulated Lunch BAG Cooler (blue)</p>
-        <p class="product-price">$2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6410.jpg" alt="Garmin Forerunner 945 LTE Smartwatch, Black" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Garmin Forerunner 945 LTE Smartwatch, Black</p>
-        <p class="product-price">$95.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot10916.jpg" alt="Jollque Women Small Patent Leather BAG" loading="lazy"><span class="qty-badge">×2</span></div>
-      <div class="product-info">
-        <p class="product-name">Jollque Women Small Patent Leather BAG</p>
-        <p class="product-price">$1.00 – $2.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot11968.jpg" alt="Travelon 43203 580 Crossbody Pouch, ONYX" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Travelon 43203 580 Crossbody Pouch, ONYX</p>
-        <p class="product-price">$5.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="category-section" id="baby-kids">
-  <h2 class="category-title">🍼 Baby &amp; Kids <span class="category-count">(9)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot7860.jpg" alt="0M Carter&#x27;s Simple JOYS Baby-girls Sleepers" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">0M Carter&#x27;s Simple JOYS Baby-girls Sleepers</p>
-        <p class="product-price">$6.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot3445.jpg" alt="3-6 Months Simple JOYS Carter&#x27;s Baby-boys Rompers" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">3-6 Months Simple JOYS Carter&#x27;s Baby-boys Rompers</p>
-        <p class="product-price">$4.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot2110.jpg" alt="Elemental Leak-proof 18OZ KIDS Bottle PINK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Elemental Leak-proof 18OZ KIDS Bottle PINK</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6236.jpg" alt="Lansinoh Anti-colic Bottles WITH Nipples 160ML" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Lansinoh Anti-colic Bottles WITH Nipples 160ML</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot1104.jpg" alt="Lansinoh Anti-colic Bottles, Medium FLOW (M)" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Lansinoh Anti-colic Bottles, Medium FLOW (M)</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot7554.jpg" alt="NA DR. Brown&#x27;s Natural FLOW Bottles 2-PACK" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NA DR. Brown&#x27;s Natural FLOW Bottles 2-PACK</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6151.jpg" alt="NA Philips Avent Natural Glass BABY Bottles, 4OZ" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NA Philips Avent Natural Glass BABY Bottles, 4OZ</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot4954.jpg" alt="NA Uppababy MINU V3 Travel Stroller - Stone BLUE" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NA Uppababy MINU V3 Travel Stroller - Stone BLUE</p>
-        <p class="product-price">$320.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot8316.jpg" alt="Toddler Sippee CUP, Spout, 9M+, Non-spill" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Toddler Sippee CUP, Spout, 9M+, Non-spill</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="category-section" id="health-fitness">
-  <h2 class="category-title">🩹 Health &amp; Fitness <span class="category-count">(2)</span></h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img"><img src="lot4177.jpg" alt="NA Neenca PRO KNEE Brace, Medical Support" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">NA Neenca PRO KNEE Brace, Medical Support</p>
-        <p class="product-price">$3.00</p>
-      </div>
-    </div>
-<div class="product-card">
-      <div class="product-img"><img src="lot6299.jpg" alt="Revix XXXL KNEE ICE WRAP FOR Arthritis" loading="lazy"></div>
-      <div class="product-info">
-        <p class="product-name">Revix XXXL KNEE ICE WRAP FOR Arthritis</p>
-        <p class="product-price">$1.00</p>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<section class="cta-strip">
-  <h3>See something you like?</h3>
-  <p>Reach out and we'll confirm availability and arrange pickup or delivery.</p>
-  <a href="mailto:hello@thrazha.ca" class="btn-cta">Email Us: hello@thrazha.ca</a>
 </section>
 
-<footer>
-  <div class="tagline">THRAZHA FINDS | A THRAZHA INTERNATIONAL company</div>
-  <div class="copyright">&copy; 2026 Thrazha Finds. All rights reserved.</div>
+<section class="arrivals">
+  <div class="arrivals-head">
+    <div>
+      <p class="eyebrow eyebrow-dark">JUST LANDED</p>
+      <h2>New arrivals this week</h2>
+    </div>
+    <span class="scroll-meta">Scroll →</span>
+  </div>
+  <div class="rail">
+    <div class="rail-card " data-id="16015">
+      <div class="rail-img"><img src="lot16015.jpg" alt="NEW Balance Fresh FOAM Arishi V4 Running SHOE 7.5" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">NEW Balance Fresh FOAM Arishi V4 Running SHOE 7.5</p>
+        <p class="rail-price">$6</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="15215">
+      <div class="rail-img"><img src="lot15215.jpg" alt="7M Vince Camuto Womens Eltera FLAT Sandal" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">7M Vince Camuto Womens Eltera FLAT Sandal</p>
+        <p class="rail-price">$4</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="13365">
+      <div class="rail-img"><img src="lot13365.jpg" alt="Clarks Breeze SEA FLIP Flops Sandals Flip-flop" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">Clarks Breeze SEA FLIP Flops Sandals Flip-flop</p>
+        <p class="rail-price">$1</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="12830">
+      <div class="rail-img"><img src="lot12830.jpg" alt="8 Skechers Tempo Waterproof GOLF SHOE Sneaker" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">8 Skechers Tempo Waterproof GOLF SHOE Sneaker</p>
+        <p class="rail-price">$17</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="12259">
+      <div class="rail-img"><img src="lot12259.jpg" alt="White DOWN Alternative Comforter - Full/medium" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Home &amp; Kitchen</p>
+        <p class="rail-title">White DOWN Alternative Comforter - Full/medium</p>
+        <p class="rail-price">$1</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="12223">
+      <div class="rail-img"><img src="lot12223.jpg" alt="9.5US Skechers MENS Gowalk FLEX Walking Shoes" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">9.5US Skechers MENS Gowalk FLEX Walking Shoes</p>
+        <p class="rail-price">$6</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="12117">
+      <div class="rail-img"><img src="lot12117.jpg" alt="10.5 Adidas Terrex FREE Hiker 2.0 GTX Walking SHOE" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">10.5 Adidas Terrex FREE Hiker 2.0 GTX Walking SHOE</p>
+        <p class="rail-price">$15</p>
+      </div>
+    </div>
+<div class="rail-card " data-id="12002">
+      <div class="rail-img"><img src="lot12002.jpg" alt="8 TEVA Womens Hurricane Drift Sandal" loading="lazy"><span class="badge-new">NEW IN</span></div>
+      <div class="rail-body">
+        <p class="rail-cat">Footwear</p>
+        <p class="rail-title">8 TEVA Womens Hurricane Drift Sandal</p>
+        <p class="rail-price">$1</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vault" id="vault">
+  <div class="vault-head">
+    <div>
+      <p class="eyebrow">THE VAULT</p>
+      <h2>The pieces worth coming in for</h2>
+    </div>
+    <a href="#catalogue" class="see-all">See all 159 items →</a>
+  </div>
+  <div class="vault-grid">
+    <div class="feat-card">
+      <div class="feat-img"><img src="lot4203.jpg" alt="Apple 2022 Macbook AIR 13.6-INCH" loading="lazy"></div>
+      <div class="feat-body">
+        <p class="feat-cat">Electronics</p>
+        <p class="feat-title">Apple 2022 Macbook AIR 13.6-INCH</p>
+        <p class="feat-price">$630</p>
+        <button class="btn-reserve-solid" data-reserve="4203">Reserve this item</button>
+      </div>
+    </div>
+<div class="feat-card">
+      <div class="feat-img"><img src="lot4954.jpg" alt="NA Uppababy MINU V3 Travel Stroller - Stone BLUE" loading="lazy"></div>
+      <div class="feat-body">
+        <p class="feat-cat">Baby &amp; Kids</p>
+        <p class="feat-title">NA Uppababy MINU V3 Travel Stroller - Stone BLUE</p>
+        <p class="feat-price">$320</p>
+        <button class="btn-reserve-solid" data-reserve="4954">Reserve this item</button>
+      </div>
+    </div>
+<div class="feat-card">
+      <div class="feat-img"><img src="lot6410.jpg" alt="Garmin Forerunner 945 LTE Smartwatch, Black" loading="lazy"></div>
+      <div class="feat-body">
+        <p class="feat-cat">Bags &amp; Accessories</p>
+        <p class="feat-title">Garmin Forerunner 945 LTE Smartwatch, Black</p>
+        <p class="feat-price">$95</p>
+        <button class="btn-reserve-solid" data-reserve="6410">Reserve this item</button>
+      </div>
+    </div>
+<div class="feat-card">
+      <div class="feat-img"><img src="lot11303.jpg" alt="Apple Iphone 12, 64GB, BLUE (renewed)" loading="lazy"></div>
+      <div class="feat-body">
+        <p class="feat-cat">Electronics</p>
+        <p class="feat-title">Apple Iphone 12, 64GB, BLUE (renewed)</p>
+        <p class="feat-price">$90</p>
+        <button class="btn-reserve-solid" data-reserve="11303">Reserve this item</button>
+      </div>
+    </div>
+<div class="feat-card">
+      <div class="feat-img"><img src="lot15695.jpg" alt="Apple Iphone 12 64GB Black - Unlocked" loading="lazy"></div>
+      <div class="feat-body">
+        <p class="feat-cat">Electronics</p>
+        <p class="feat-title">Apple Iphone 12 64GB Black - Unlocked</p>
+        <p class="feat-price">$57.50 – $70</p>
+        <button class="btn-reserve-solid" data-reserve="15695">Reserve this item</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalogue" id="catalogue">
+  <div class="cat-head">
+    <div>
+      <p class="eyebrow">THE CATALOGUE</p>
+      <h2>The full inventory</h2>
+    </div>
+    <span class="cat-meta" id="resultMeta">159 items shown / 159 total</span>
+  </div>
+
+  <div class="toolbar" id="toolbar">
+    <div class="search-field">
+      <span class="search-slash">/</span>
+      <input type="text" id="searchInput" placeholder="Search brand, size or item…" autocomplete="off">
+    </div>
+    <select id="sortSelect" class="sort-select">
+      <option value="featured">Curated</option>
+      <option value="low">Price low → high</option>
+      <option value="high">Price high → low</option>
+      <option value="az">A–Z</option>
+    </select>
+    <div class="chips" id="chipRow"></div>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+  <div class="empty-state" id="emptyState" hidden>
+    <p class="empty-title">Nothing matches that yet.</p>
+    <p class="empty-body">New items land every week — check back soon or clear your filters.</p>
+    <button class="btn-clear" id="clearFilters">Clear filters</button>
+  </div>
+</section>
+
+<section class="how-it-works" id="how-it-works">
+  <p class="eyebrow eyebrow-dark">HOW IT WORKS</p>
+  <h2>Three steps, no bidding wars.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><p class="step-title">Browse &amp; reserve</p><p class="step-body">Find something in the catalogue and reserve it — no payment now.</p></div>
+    <div class="step"><div class="step-num">2</div><p class="step-title">We confirm condition</p><p class="step-body">We hold the item for 48 hours while we confirm condition with you.</p></div>
+    <div class="step"><div class="step-num">3</div><p class="step-title">Pick up or ship</p><p class="step-body">Collect it in person or have it shipped Canada-wide.</p></div>
+  </div>
+</section>
+
+<section class="pickup" id="pickup">
+  <div class="pickup-grid">
+    <div class="pickup-terms">
+      <div class="term-row"><span class="term-label">Pickup window</span><span class="term-value">Tue – Sat, 10:00 – 18:00</span></div>
+      <div class="term-row"><span class="term-label">Local delivery</span><span class="term-value">Flat $15 within city</span></div>
+      <div class="term-row"><span class="term-label">Canada-wide</span><span class="term-value">Quoted per item</span></div>
+      <a href="mailto:hello@thrazha.ca" class="btn-outline-dark">Email us: hello@thrazha.ca</a>
+    </div>
+    <div class="stock-alerts">
+      <h3>Stock alerts</h3>
+      <p class="alerts-body">Tell us what you're hunting for and we'll email you when it lands.</p>
+      <form id="alertForm">
+        <input type="email" placeholder="Email address" required id="alertEmail">
+        <select id="alertCategory">
+          <option value="">What are you hunting?</option>
+          <option value="Footwear">Footwear</option><option value="Apparel">Apparel</option><option value="Electronics">Electronics</option><option value="Home &amp; Kitchen">Home &amp; Kitchen</option><option value="Bags &amp; Accessories">Bags &amp; Accessories</option><option value="Baby &amp; Kids">Baby &amp; Kids</option><option value="Health &amp; Fitness">Health &amp; Fitness</option>
+        </select>
+        <button type="submit" id="alertSubmit">Notify me</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="thrazha-logo.png" alt="Thrazha" class="footer-mark">
+      <span class="footer-word">THRAZHA BAZAAR</span>
+      <p class="footer-tag">Overstock, returns and auction finds. Shipping Canada-wide.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Shop</p>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#vault">The vault</a>
+      <a href="#how-it-works">How it works</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Company</p>
+      <a href="https://www.thrazha.ca">Thrazha.ca</a>
+      <a href="https://www.thrazha.ca/about.html">About</a>
+      <a href="https://www.thrazha.ca/services.html">Services</a>
+      <a href="https://www.thrazha.ca/contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Get in touch</p>
+      <a href="mailto:hello@thrazha.ca">hello@thrazha.ca</a>
+      <a href="returns.html">Returns &amp; holds policy</a>
+      <a href="conditions.html">Condition grades</a>
+    </div>
+  </div>
+  <div class="legal-bar">
+    <span>© 2026 Thrazha International Inc.</span>
+    <span>Prices in CAD · Condition graded per item</span>
+  </div>
 </footer>
 
+<div class="sheet-overlay" id="sheetOverlay">
+  <div class="sheet" id="sheet">
+    <div class="sheet-header">
+      <img id="sheetImg" class="sheet-thumb" src="" alt="">
+      <div class="sheet-info">
+        <p class="sheet-meta" id="sheetMeta"></p>
+        <p class="sheet-title" id="sheetTitle"></p>
+        <p class="sheet-price" id="sheetPrice"></p>
+      </div>
+      <button class="sheet-close" id="sheetClose" type="button">×</button>
+    </div>
+    <div class="sheet-body" id="sheetForm">
+      <form id="reserveForm">
+        <input type="text" placeholder="Your name" required id="rName">
+        <input type="text" placeholder="Email or phone" required id="rContact">
+        <select id="rFulfilment">
+          <option value="Pickup Tue–Sat">Pickup Tue–Sat</option>
+          <option value="Local delivery $15">Local delivery $15</option>
+          <option value="Ship Canada-wide — quote me">Ship Canada-wide — quote me</option>
+        </select>
+        <textarea placeholder="Anything we should know? (optional)" id="rNote" rows="3"></textarea>
+        <button type="submit" class="btn-hold">Hold this item for 48 hours</button>
+        <p class="sheet-fineprint">No payment now. We confirm condition first.</p>
+      </form>
+    </div>
+    <div class="sheet-done" id="sheetDone" hidden>
+      <p class="done-title">Held for 48 hours.</p>
+      <p class="done-body">We've opened an email to our team with your details — send it and
+      we'll confirm within one business day.</p>
+      <button class="btn-outline-dark" id="sheetDoneClose" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+window.__PRODUCTS__ = [{"id": "13", "title": "M Hanes Men's Ribbed TANK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot13.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "66", "title": "7 Adidas Terrex Anylander MID Hiking Rain.rdy", "category": "Footwear", "chip": "Footwear", "price": 12.0, "priceLabel": "$12", "img": "lot66.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "171", "title": "Youth 14/16 Brooklyn Vertical BOYS 4-PACK Undershi", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot171.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "182", "title": "34 Amazon Essentials Men's Cargo Shorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot182.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "186", "title": "Large Calvin Klein MENS 7-PACK Boxer Briefs", "category": "Apparel & Clothing", "chip": "Apparel", "price": 14.0, "priceLabel": "$14", "img": "lot186.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "368", "title": "Medium Hanes Men's Comfortsoft Knitboxer 4-PACK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 7.0, "priceLabel": "$7", "img": "lot368.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "489", "title": "L Hanes Men's Undershirt - Sweat Blocking TEE", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot489.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "514", "title": "US-7 Clarks Breeze SEA FLIP Flops Sandals Flip-flo", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot514.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "531", "title": "Fruit OF THE LOOM Men's 6-PACK V-neck T-shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot531.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "622", "title": "Medium Fruit OF THE LOOM Men's CREW & A T-shirts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot622.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "709", "title": "Small Hanes Men's Boxer Briefs, Stretch Cotton", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot709.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "739", "title": "Carter's Simple JOYS Kimmie NORA Jelly Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot739.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "778", "title": "US11 Amazon Essentials Belice Slip-on Ballet FLAT", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot778.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "836", "title": "Us-xl Tacvasen Men's RASH Guard UPF 50+ Shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 7.0, "priceLabel": "$7", "img": "lot836.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "943", "title": "Galaxy Insulated Lunch BAG Cooler (blue)", "category": "Bags & Accessories", "chip": "Bags & Accessories", "price": 2.0, "priceLabel": "$2", "img": "lot943.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1754", "title": "Wishdeco Large SOUP Bowls, Ceramic 37OZ/1100ML", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 7.0, "priceLabel": "$4 – $7", "img": "lot1754.jpg", "condition": "Overstock", "qty": 2, "unitLabel": "2 units", "status": "available"}, {"id": "1104", "title": "Lansinoh Anti-colic Bottles, Medium FLOW (M)", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 1.0, "priceLabel": "$1", "img": "lot1104.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1406", "title": "Steelseries Arctis NOVA 3X Wireless Headset", "category": "Electronics", "chip": "Electronics", "price": 2.0, "priceLabel": "$2", "img": "lot1406.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1559", "title": "Utopia Bedding KING 09X102INCH", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot1559.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1630", "title": "Stanley Quencher H2.0 Tumbler 30 OZ WITH", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 6.0, "priceLabel": "$6", "img": "lot1630.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1714", "title": "Thermos Funtainer 14OZ Bottle", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 2.0, "priceLabel": "$2", "img": "lot1714.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1757", "title": "S Hanes Men's Ribbed TANK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot1757.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1831", "title": "Small Gildan Unisex Fleece ZIP Hoodie G18600", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot1831.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1948", "title": "XXL Men's Cotton GYM TANK Tops, Sleeveless Workout", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot1948.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1954", "title": "Large Hanes Men's Ribbed TANK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot1954.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1959", "title": "XL Fruit OF THE LOOM MENS Comfort Casual Boxers", "category": "Apparel & Clothing", "chip": "Apparel", "price": 7.0, "priceLabel": "$7", "img": "lot1959.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "1972", "title": "L Fruit OF THE LOOM Men's Coolzone Boxer Briefs", "category": "Apparel & Clothing", "chip": "Apparel", "price": 8.0, "priceLabel": "$8", "img": "lot1972.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2038", "title": "L Hanes Men's Ribbed TANK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot2038.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2071", "title": "8 Felix & Flora Toddler Girls Sandals Closed TOE", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2098", "title": "Medium Tommy Hilfiger Collared LONG Sleeve Shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 9.0, "priceLabel": "$9", "img": "lot2098.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2110", "title": "Elemental Leak-proof 18OZ KIDS Bottle PINK", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 1.0, "priceLabel": "$1", "img": "lot2110.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2169", "title": "5 Franco Sarto Carolynn Loafers Slip-on Tassel", "category": "Footwear", "chip": "Footwear", "price": 8.0, "priceLabel": "$8", "img": "lot2169.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2246", "title": "XL Hanes MENS Essentials Muscle T-shirt PACK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot2246.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2252", "title": "M TENA Men's Washable Boxers, MED Black", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot2252.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2289", "title": "Small Philcos CFL Saskatchewan Roughriders T-shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot2289.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2299", "title": "UK 4 Orlimar Womens Ladies GOLF Sandals Sandals", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot2299.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2328", "title": "37 Women's Running Shoes SIZE 37", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot2328.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2447", "title": "Large Hanes Men's Comfortsoft Knitboxer 4-PACK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot2447.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2516", "title": "S NIKE Breaker Essential Brief Trunks", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot2516.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2567", "title": "Steelseries Arctis NOVA 7X Wireless Headset", "category": "Electronics", "chip": "Electronics", "price": 1.0, "priceLabel": "$1", "img": "lot2567.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2617", "title": "Amazon Basics Electric Coffee Grinder", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot2617.jpg", "condition": "Overstock", "qty": 2, "unitLabel": "2 units", "status": "available"}, {"id": "2702", "title": "Large Harry Potter MENS T-shirtt-shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot2702.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2735", "title": "Brita Filtering Water Bottle, 26 OZ, SEA Glass", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 2.0, "priceLabel": "$2", "img": "lot2735.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "2817", "title": "Amazfit Active 3 Smartwatch, GPS, Amoled", "category": "Bags & Accessories", "chip": "Bags & Accessories", "price": 62.5, "priceLabel": "$62.50", "img": "lot2817.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "3297", "title": "7.5 Skechers MENS Summit Hands FREE Sneaker", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot3297.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "3312", "title": "US 6W Clarks Womens Elliotte SAIL Moccasin", "category": "Footwear", "chip": "Footwear", "price": 5.0, "priceLabel": "$5", "img": "lot3312.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "3445", "title": "3-6 Months Simple JOYS Carter's Baby-boys Rompers", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 4.0, "priceLabel": "$4", "img": "lot3445.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "3640", "title": "4 XL Nautica Men's Solid CREW NECK Pocket T-shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot3640.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "3950", "title": "M Hanes Men's 4 PACK Freshiq Cotton Woven Boxer", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot3950.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4172", "title": "9M Naturalizer BRIDGET4 Strappy Sandal", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot4172.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4177", "title": "NA Neenca PRO KNEE Brace, Medical Support", "category": "Health & Fitness", "chip": "Health & Fitness", "price": 3.0, "priceLabel": "$3", "img": "lot4177.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4203", "title": "Apple 2022 Macbook AIR 13.6-INCH", "category": "Electronics", "chip": "Electronics", "price": 630.0, "priceLabel": "$630", "img": "lot4203.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4258", "title": "Kvidio Bluetooth Headphones Wireless Over-ear", "category": "Electronics", "chip": "Electronics", "price": 1.0, "priceLabel": "$1", "img": "lot4258.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4426", "title": "M Amazon Essentials Men's Full-zip Hoodie", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot4426.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4427", "title": "L NIKE BOYS Dri-fit Boxer Briefs (3-PACK)", "category": "Apparel & Clothing", "chip": "Apparel", "price": 10.0, "priceLabel": "$10", "img": "lot4427.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4564", "title": "Large Jerzees 4997_AP JZ 9.5 OZ 50/50 P/O FLC HOO", "category": "Apparel & Clothing", "chip": "Apparel", "price": 4.0, "priceLabel": "$4", "img": "lot4564.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4595", "title": "9.5 NEW Balance Fresh FOAM 680 V9 Running SHOE SIZ", "category": "Footwear", "chip": "Footwear", "price": 12.0, "priceLabel": "$12", "img": "lot4595.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4625", "title": "L Fruit OF THE LOOM MENS Comfort Casual Boxers", "category": "Apparel & Clothing", "chip": "Apparel", "price": 6.0, "priceLabel": "$6", "img": "lot4625.jpg", "condition": "Overstock", "qty": 2, "unitLabel": "2 units", "status": "available"}, {"id": "4631", "title": "SAXX Men's Non-stop Cotton Trunk 2-PACK Small", "category": "Apparel & Clothing", "chip": "Apparel", "price": 5.0, "priceLabel": "$5", "img": "lot4631.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4668", "title": "Medium Tacvasen Men's Quick DRY Cargo Shorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot4668.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4887", "title": "Queen Comforter: DOWN Alternative, White", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot4887.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "4954", "title": "NA Uppababy MINU V3 Travel Stroller - Stone BLUE", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 320.0, "priceLabel": "$320", "img": "lot4954.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5017", "title": "US 7.5 Reebok Classic Princess WIDE D Sneakers", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot5017.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5119", "title": "7 Clarks MENS Sailview STEP Loafer", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot5119.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5212", "title": "Logitech MK270 Keyboard & Mouse - ROSE", "category": "Electronics", "chip": "Electronics", "price": 1.0, "priceLabel": "$1", "img": "lot5212.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5272", "title": "7.5 Betsey Johnson Womens Clark PUMP SIZE-7.5", "category": "Footwear", "chip": "Footwear", "price": 15.0, "priceLabel": "$15", "img": "lot5272.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5325", "title": "36 Amazon Essentials Men's Cargo Shorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot5325.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5492", "title": "5,5 Amazon Essentials Women's Shogun Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot5492.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "15695", "title": "Apple Iphone 12 64GB Black - Unlocked", "category": "Electronics", "chip": "Electronics", "price": 70.0, "priceLabel": "$57.50 – $70", "img": "lot15695.jpg", "condition": "Overstock", "qty": 4, "unitLabel": "4 units", "status": "available"}, {"id": "5802", "title": "12 COLE HAAN Nantucket Cross Strap Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot5802.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5913", "title": "Thermos ICON 24OZ Stainless Bottle WITH Spout", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot5913.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "5966", "title": "UK 8 Skechers Womens On-the-go 600 Dainty Sandal", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot5966.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6035", "title": "Medium Women's Cotton Short Pyjama Night Short XS", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot6035.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6057", "title": "L Amazon Essentials Womens Slim-fit TANK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot6057.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6151", "title": "NA Philips Avent Natural Glass BABY Bottles, 4OZ", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 3.0, "priceLabel": "$3", "img": "lot6151.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6236", "title": "Lansinoh Anti-colic Bottles WITH Nipples 160ML", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 1.0, "priceLabel": "$1", "img": "lot6236.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6299", "title": "Revix XXXL KNEE ICE WRAP FOR Arthritis", "category": "Health & Fitness", "chip": "Health & Fitness", "price": 1.0, "priceLabel": "$1", "img": "lot6299.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6355", "title": "CASA Platino Oversized KING Comforter Duvet", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot6355.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6374", "title": "8 NINE WEST GRISELDA3-BLACK/NB Sandal", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot6374.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6378", "title": "ELLO 32OZ Stainless Water Bottle, Insulated", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot6378.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6396", "title": "42.5 DC MENS Court Graffik", "category": "Footwear", "chip": "Footwear", "price": 13.0, "priceLabel": "$13", "img": "lot6396.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6410", "title": "Garmin Forerunner 945 LTE Smartwatch, Black", "category": "Bags & Accessories", "chip": "Bags & Accessories", "price": 95.0, "priceLabel": "$95", "img": "lot6410.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6415", "title": "Danby DPA050E2BDB-6 7500 BTU A/C FAN", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 22.0, "priceLabel": "$22", "img": "lot6415.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6452", "title": "Merrell MENS Promorph Trail Running SHOE", "category": "Footwear", "chip": "Footwear", "price": 5.0, "priceLabel": "$5", "img": "lot6452.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6461", "title": "NA Amazon Essentials MENS Slim-fit V-neck T-shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot6461.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6488", "title": "3 KEEN Unisex-child Seacamp 2 Cnx-c Sandals", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot6488.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6566", "title": "7.5 Skechers Women's Hands FREE Slip-ins Summits", "category": "Footwear", "chip": "Footwear", "price": 11.0, "priceLabel": "$11", "img": "lot6566.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6671", "title": "28 Levi's Womens Cinch Mid-thigh Shortshorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot6671.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6692", "title": "Turtle Beach Stealth 500 Wireless Headset", "category": "Electronics", "chip": "Electronics", "price": 1.0, "priceLabel": "$1", "img": "lot6692.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6729", "title": "7.5M Steve Madden Women's Locke Heeled Sandals", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot6729.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6834", "title": "SONY Linkbuds CLIP Open-ear Earbuds, Lavender", "category": "Electronics", "chip": "Electronics", "price": 5.0, "priceLabel": "$5", "img": "lot6834.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6933", "title": "US 10.5W NEW Balance Dynasoft Nergize V2 Trainer", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot6933.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "6959", "title": "8 Jewel Badgley Mischka Celine Heeled Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot6959.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7010", "title": "Rowenta 2-IN-1 DUO Force IRON & Steamer JR4031", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 17.0, "priceLabel": "$17", "img": "lot7010.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7091", "title": "10 KEEN Pyrenees MID Height Waterproof Boots", "category": "Footwear", "chip": "Footwear", "price": 10.0, "priceLabel": "$10", "img": "lot7091.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7164", "title": "Large JACK & Jones MENS POLO Sspolo Shirt", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot7164.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7377", "title": "Leemc Wireless Earbuds, 5.4 BT, 80HR Playtime", "category": "Electronics", "chip": "Electronics", "price": 7.0, "priceLabel": "$7", "img": "lot7377.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7414", "title": "T-fal Ingenio 11-PC POTS & PANS Beige", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 45.0, "priceLabel": "$45", "img": "lot7414.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7554", "title": "NA DR. Brown's Natural FLOW Bottles 2-PACK", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 1.0, "priceLabel": "$1", "img": "lot7554.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7624", "title": "30 Levi's Womens Cinch Mid-thigh Shortshorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 3.0, "priceLabel": "$3", "img": "lot7624.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7640", "title": "Conair GS7NXRC Upright Fabric Steamer 1200W", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 3.0, "priceLabel": "$3", "img": "lot7640.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7730", "title": "18 X RAY BOYS RBS-19021CARGO Shorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot7730.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7846", "title": "USA 9 Under Armour Ignite PRO 8 Slides Sandal", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot7846.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7860", "title": "0M Carter's Simple JOYS Baby-girls Sleepers", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 6.0, "priceLabel": "$6", "img": "lot7860.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "7890", "title": "5.5 Skechers Women's Breathe-easy Sneaker", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot7890.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8029", "title": "33 Levi's Womens 501 Original High-rise Shorts", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot8029.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8122", "title": "5T Carter's BABY Girls' KNIT Shorts 3-PACK", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot8122.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8129", "title": "18 Months Gerber Unisex BABY 8-PACK Short Sleeve O", "category": "Apparel & Clothing", "chip": "Apparel", "price": 5.0, "priceLabel": "$5", "img": "lot8129.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8243", "title": "SAM Edelman Womens Poppy Sneakers Sneaker", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot8243.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8316", "title": "Toddler Sippee CUP, Spout, 9M+, Non-spill", "category": "Baby & Kids", "chip": "Baby & Kids", "price": 3.0, "priceLabel": "$3", "img": "lot8316.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "8372", "title": "7 Stacy Adams MENS Santos", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot8372.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10916", "title": "Jollque Women Small Patent Leather BAG", "category": "Bags & Accessories", "chip": "Bags & Accessories", "price": 2.0, "priceLabel": "$1 – $2", "img": "lot10916.jpg", "condition": "Overstock", "qty": 2, "unitLabel": "2 units", "status": "available"}, {"id": "9009", "title": "Skechers Reggae Women's Timeless Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot9009.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9035", "title": "14 LEVI Strauss Signature GOLD Shaping Jeans", "category": "Apparel & Clothing", "chip": "Apparel", "price": 2.0, "priceLabel": "$2", "img": "lot9035.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9052", "title": "6.5 NEW Balance Fresh FOAM ROAV V1 Running SHOE", "category": "Footwear", "chip": "Footwear", "price": 6.0, "priceLabel": "$6", "img": "lot9052.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9096", "title": "6 Skechers Womens D'lites-chromatic Sneaker", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot9096.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9737", "title": "Logitech MK335 Wireless Keyboard Mouse Combo", "category": "Electronics", "chip": "Electronics", "price": 2.0, "priceLabel": "$2", "img": "lot9737.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9780", "title": "DELL Premier Keyboard KM7321W (renewed)", "category": "Electronics", "chip": "Electronics", "price": 1.0, "priceLabel": "$1", "img": "lot9780.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9936", "title": "Owala Freesip Insulated Steel Bottle 24OZ", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 4.0, "priceLabel": "$4", "img": "lot9936.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9949", "title": "US10 Clarks MENS Desert BOOT Chukka BOOT", "category": "Footwear", "chip": "Footwear", "price": 7.0, "priceLabel": "$7", "img": "lot9949.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9980", "title": "12M Dockers Shoes Newpage -90-21389 DK56 Sandal", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot9980.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "9991", "title": "10.5 Adidas Duramo SL 2 Running CORE Black 10.5", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot9991.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10036", "title": "Stanley Quencher H2.0 Tumbler 14 OZ, Handle", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 5.0, "priceLabel": "$5", "img": "lot10036.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10089", "title": "Magic Bullet Blender, Mixer & Mini-processor", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 3.0, "priceLabel": "$3", "img": "lot10089.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10173", "title": "Hydro Flask Micro Bottle - 6.7 OZ Harbor BLUE", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 5.0, "priceLabel": "$5", "img": "lot10173.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10395", "title": "9 Skechers Reggae SLIM Slip-ons", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot10395.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10425", "title": "11 Children KEEN KIDS Targhee 4 MID Boots", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot10425.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10469", "title": "10 Adidas Unisex-adult Samba Indoor Sneaker SIZE-1", "category": "Footwear", "chip": "Footwear", "price": 9.0, "priceLabel": "$9", "img": "lot10469.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10492", "title": "Chefman 1.8L Electric Kettle, 1500W", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot10492.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10586", "title": "US 12M Clarks MENS Derby Lace-up", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot10586.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10617", "title": "US 30X32 Guess Womens Bellflower WIDE LEG Jeanjean", "category": "Apparel & Clothing", "chip": "Apparel", "price": 1.0, "priceLabel": "$1", "img": "lot10617.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10629", "title": "7 COLE HAAN MENS Grandpro LUXE Slip-on Sneaker", "category": "Footwear", "chip": "Footwear", "price": 7.0, "priceLabel": "$7", "img": "lot10629.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10675", "title": "9 Skechers Arcade ARCH FIT Arcata Sneaker", "category": "Footwear", "chip": "Footwear", "price": 7.0, "priceLabel": "$7", "img": "lot10675.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "10833", "title": "6 Skechers Womens UNO - Shimmer AWAY Sneakers", "category": "Footwear", "chip": "Footwear", "price": 5.0, "priceLabel": "$5", "img": "lot10833.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11113", "title": "US- 10.5M/12W Under Armour Unisex-adult Lockdown 7", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot11113.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11139", "title": "10.5 Clarks MENS Whiddon CAP Oxford", "category": "Footwear", "chip": "Footwear", "price": 6.0, "priceLabel": "$6", "img": "lot11139.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11278", "title": "6 Madden GIRL Womens Bodiee Slide Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11278.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11303", "title": "Apple Iphone 12, 64GB, BLUE (renewed)", "category": "Electronics", "chip": "Electronics", "price": 90.0, "priceLabel": "$90", "img": "lot11303.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11527", "title": "44.5 PUMA MENS Future 9 PLAY TURF Soccer Cleats", "category": "Footwear", "chip": "Footwear", "price": 18.0, "priceLabel": "$18", "img": "lot11527.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11534", "title": "8 TOMS Women's Classic Wedge Espadrille Sandal", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot11534.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11547", "title": "10 Under Armour Women's Charged Assert 11 Shoes", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11547.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11555", "title": "Stanley Quick FLIP GO Bottle 24 OZ", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 2.0, "priceLabel": "$2", "img": "lot11555.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11582", "title": "Hydro Flask 32 OZ WIDE Mouth Bottle", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 2.0, "priceLabel": "$2", "img": "lot11582.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11594", "title": "8.5 W Lifestride Womens Miami Wedge Sandal", "category": "Footwear", "chip": "Footwear", "price": 2.0, "priceLabel": "$2", "img": "lot11594.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11622", "title": "US 8.5W Amazon Essentials Belice Slip-on Ballet FL", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11622.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11671", "title": "8 Amazon Essentials Women's Shogun Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11671.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11788", "title": "40.5 Nortiv 8 Women's Lightweight Hiking Shoes", "category": "Footwear", "chip": "Footwear", "price": 3.0, "priceLabel": "$3", "img": "lot11788.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11797", "title": "Amazon Basics 9 IN. Melamine Plate - 6 PC", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 2.0, "priceLabel": "$2", "img": "lot11797.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11858", "title": "6W Clarks Womens Elliotte SAIL Moccasin", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11858.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11935", "title": "12.5W Amazon Essentials Women's Shogun Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot11935.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "11968", "title": "Travelon 43203 580 Crossbody Pouch, ONYX", "category": "Bags & Accessories", "chip": "Bags & Accessories", "price": 5.0, "priceLabel": "$5", "img": "lot11968.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "12002", "title": "8 TEVA Womens Hurricane Drift Sandal", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot12002.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "12117", "title": "10.5 Adidas Terrex FREE Hiker 2.0 GTX Walking SHOE", "category": "Footwear", "chip": "Footwear", "price": 15.0, "priceLabel": "$15", "img": "lot12117.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "12223", "title": "9.5US Skechers MENS Gowalk FLEX Walking Shoes", "category": "Footwear", "chip": "Footwear", "price": 6.0, "priceLabel": "$6", "img": "lot12223.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "12259", "title": "White DOWN Alternative Comforter - Full/medium", "category": "Home & Kitchen", "chip": "Home & Kitchen", "price": 1.0, "priceLabel": "$1", "img": "lot12259.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "12830", "title": "8 Skechers Tempo Waterproof GOLF SHOE Sneaker", "category": "Footwear", "chip": "Footwear", "price": 17.0, "priceLabel": "$17", "img": "lot12830.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "13365", "title": "Clarks Breeze SEA FLIP Flops Sandals Flip-flop", "category": "Footwear", "chip": "Footwear", "price": 1.0, "priceLabel": "$1", "img": "lot13365.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "15215", "title": "7M Vince Camuto Womens Eltera FLAT Sandal", "category": "Footwear", "chip": "Footwear", "price": 4.0, "priceLabel": "$4", "img": "lot15215.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}, {"id": "16015", "title": "NEW Balance Fresh FOAM Arishi V4 Running SHOE 7.5", "category": "Footwear", "chip": "Footwear", "price": 6.0, "priceLabel": "$6", "img": "lot16015.jpg", "condition": "Overstock", "qty": 1, "unitLabel": "1 of 1", "status": "available"}];
+window.__CHIPS__ = ["All items", "Footwear", "Apparel", "Electronics", "Home & Kitchen", "Bags & Accessories", "Baby & Kids", "Health & Fitness"];
+
+(function(){
+  const PRODUCTS = window.__PRODUCTS__;
+  const CHIPS = window.__CHIPS__;
+  const grid = document.getElementById('productGrid');
+  const emptyState = document.getElementById('emptyState');
+  const resultMeta = document.getElementById('resultMeta');
+  const chipRow = document.getElementById('chipRow');
+  const searchInput = document.getElementById('searchInput');
+  const sortSelect = document.getElementById('sortSelect');
+  const watchlistCount = document.getElementById('watchlistCount');
+
+  const state = {
+    q: '',
+    cat: 'All items',
+    sort: 'featured',
+    saved: new Set(loadSaved()),
+  };
+
+  function loadSaved(){
+    try { return JSON.parse(localStorage.getItem('thrazha_watchlist') || '[]'); }
+    catch(e){ return []; }
+  }
+  function persistSaved(){
+    try { localStorage.setItem('thrazha_watchlist', JSON.stringify([...state.saved])); }
+    catch(e){}
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderChips(){
+    chipRow.innerHTML = CHIPS.map(c =>
+      `<button type="button" class="chip${c === state.cat ? ' active' : ''}" data-chip="${esc(c)}">${esc(c)}</button>`
+    ).join('');
+  }
+
+  function matches(p){
+    const q = state.q.trim().toLowerCase();
+    const hay = (p.title + ' ' + p.chip + ' ' + p.condition).toLowerCase();
+    const okQ = !q || hay.includes(q);
+    const okCat = state.cat === 'All items' || p.chip === state.cat;
+    return okQ && okCat;
+  }
+
+  function sortList(list){
+    const arr = list.slice();
+    if (state.sort === 'low') arr.sort((a,b) => a.price - b.price);
+    else if (state.sort === 'high') arr.sort((a,b) => b.price - a.price);
+    else if (state.sort === 'az') arr.sort((a,b) => a.title.localeCompare(b.title));
+    return arr;
+  }
+
+  function cardHtml(p){
+    const saved = state.saved.has(p.id);
+    const img = p.img ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">` : '';
+    const soldOrComing = p.status !== 'available';
+    const ctaLabel = p.status === 'sold' ? 'Sold' : (p.status === 'coming_soon' ? 'Coming soon' : 'Reserve');
+    return `<div class="card" data-id="${esc(p.id)}">
+      <div class="card-img">${img}
+        <span class="condition-chip">${esc(p.condition)}</span>
+        <button type="button" class="save-btn${saved ? ' saved' : ''}" data-save="${esc(p.id)}">${saved ? 'Saved' : 'Save'}</button>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">${esc(p.chip)}</p>
+        <p class="card-title">${esc(p.title)}</p>
+        <p class="card-price">${esc(p.priceLabel)}</p>
+        <p class="card-meta">${esc(p.unitLabel)}</p>
+        <button type="button" class="btn-outline" data-reserve="${esc(p.id)}" ${soldOrComing ? 'disabled' : ''}>${ctaLabel}</button>
+      </div>
+    </div>`;
+  }
+
+  function render(){
+    const filtered = sortList(PRODUCTS.filter(matches));
+    resultMeta.textContent = `${filtered.length} items shown / ${PRODUCTS.length} total`;
+    if (!filtered.length){
+      grid.innerHTML = '';
+      emptyState.hidden = false;
+    } else {
+      emptyState.hidden = true;
+      grid.innerHTML = filtered.map(cardHtml).join('');
+    }
+    watchlistCount.textContent = state.saved.size;
+  }
+
+  chipRow.addEventListener('click', e => {
+    const btn = e.target.closest('[data-chip]');
+    if (!btn) return;
+    state.cat = btn.dataset.chip;
+    renderChips();
+    render();
+  });
+
+  searchInput.addEventListener('input', e => { state.q = e.target.value; render(); });
+  sortSelect.addEventListener('change', e => { state.sort = e.target.value; render(); });
+
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    state.q = ''; state.cat = 'All items'; state.sort = 'featured';
+    searchInput.value = ''; sortSelect.value = 'featured';
+    renderChips(); render();
+  });
+
+  document.addEventListener('click', e => {
+    const saveBtn = e.target.closest('[data-save]');
+    if (saveBtn){
+      e.stopPropagation();
+      const id = saveBtn.dataset.save;
+      if (state.saved.has(id)) state.saved.delete(id); else state.saved.add(id);
+      persistSaved();
+      render();
+      return;
+    }
+    const reserveBtn = e.target.closest('[data-reserve]');
+    if (reserveBtn && !reserveBtn.disabled){
+      openSheet(reserveBtn.dataset.reserve);
+    }
+  });
+
+  document.getElementById('watchlistBtn').addEventListener('click', () => {
+    state.cat = 'All items'; state.q = '';
+    searchInput.value = '';
+    renderChips();
+    const filtered = PRODUCTS.filter(p => state.saved.has(p.id));
+    resultMeta.textContent = `${filtered.length} items shown / ${PRODUCTS.length} total`;
+    grid.innerHTML = filtered.length ? filtered.map(cardHtml).join('') : '';
+    emptyState.hidden = !!filtered.length;
+    document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});
+  });
+
+  // --- Reserve sheet ---
+  const overlay = document.getElementById('sheetOverlay');
+  const sheetForm = document.getElementById('sheetForm');
+  const sheetDone = document.getElementById('sheetDone');
+  let activeProduct = null;
+
+  function openSheet(id){
+    activeProduct = PRODUCTS.find(p => p.id === id);
+    if (!activeProduct) return;
+    document.getElementById('sheetImg').src = activeProduct.img || '';
+    document.getElementById('sheetImg').alt = activeProduct.title;
+    document.getElementById('sheetMeta').textContent = `${activeProduct.condition} · ${activeProduct.chip}`;
+    document.getElementById('sheetTitle').textContent = activeProduct.title;
+    document.getElementById('sheetPrice').textContent = activeProduct.priceLabel;
+    sheetForm.hidden = false;
+    sheetDone.hidden = true;
+    document.getElementById('reserveForm').reset();
+    overlay.classList.add('open');
+  }
+  function closeSheet(){
+    overlay.classList.remove('open');
+    activeProduct = null;
+  }
+  document.getElementById('sheetClose').addEventListener('click', closeSheet);
+  document.getElementById('sheetDoneClose').addEventListener('click', closeSheet);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeSheet(); });
+  document.getElementById('sheet').addEventListener('click', e => e.stopPropagation());
+
+  document.getElementById('reserveForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!activeProduct) return;
+    const name = document.getElementById('rName').value.trim();
+    const contact = document.getElementById('rContact').value.trim();
+    const fulfilment = document.getElementById('rFulfilment').value;
+    const note = document.getElementById('rNote').value.trim();
+    if (!name || !contact) return;
+    const subject = `Reserve request: ${activeProduct.title}`;
+    const body = [
+      `Item: ${activeProduct.title} (${activeProduct.priceLabel})`,
+      `Condition: ${activeProduct.condition}`,
+      `Name: ${name}`,
+      `Contact: ${contact}`,
+      `Fulfilment: ${fulfilment}`,
+      note ? `Note: ${note}` : ''
+    ].filter(Boolean).join('\n');
+    const mailto = `mailto:hello@thrazha.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    sheetForm.hidden = true;
+    sheetDone.hidden = false;
+  });
+
+  // --- Stock alerts (static site: confirms locally, opens a prefilled email) ---
+  document.getElementById('alertForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('alertEmail').value.trim();
+    const category = document.getElementById('alertCategory').value;
+    if (!email) return;
+    const btn = document.getElementById('alertSubmit');
+    btn.textContent = "You're on the list";
+    btn.disabled = true;
+    const subject = 'Stock alert sign-up';
+    const body = `Email: ${email}\nHunting for: ${category || 'anything'}`;
+    window.location.href = `mailto:hello@thrazha.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  renderChips();
+  render();
+})();
+
+</script>
 </body>
 </html>
