@@ -35,8 +35,8 @@ img{display:block;max-width:100%;}
 .brand{display:flex;align-items:center;gap:10px;}
 .brand-mark{width:40px;height:40px;object-fit:contain;}
 .brand-text{display:flex;flex-direction:column;}
-.brand-word{font-family:Cinzel,serif;font-weight:700;font-size:18px;letter-spacing:.06em;}
-.brand-sub{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--meta-muted);}
+.brand-word{font-family:Cinzel,serif;font-weight:700;font-size:18px;letter-spacing:.06em;font-variant:small-caps;}
+.brand-sub{font-size:10px;font-weight:600;font-variant:small-caps;letter-spacing:.14em;color:var(--meta-muted);}
 .main-nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
 .main-nav a{font-size:14px;font-weight:600;}
 .main-nav a.nav-out{color:var(--meta-muted);}
@@ -159,7 +159,7 @@ img{display:block;max-width:100%;}
 .site-footer{background:var(--olive);color:var(--paper);padding:52px 20px 20px;}
 .footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;padding-bottom:26px;}
 .footer-mark{width:38px;height:38px;object-fit:contain;margin-bottom:10px;}
-.footer-word{font-family:Cinzel,serif;font-weight:700;font-size:17px;letter-spacing:.06em;display:block;margin-bottom:8px;}
+.footer-word{font-family:Cinzel,serif;font-weight:700;font-size:17px;letter-spacing:.06em;font-variant:small-caps;display:block;margin-bottom:8px;}
 .footer-tag{font-size:13px;color:rgba(243,242,228,.7);max-width:32ch;}
 .footer-heading{font-weight:700;font-size:13px;margin-bottom:10px;}
 .footer-col a{display:block;font-size:14px;color:rgba(243,242,228,.82);margin-bottom:8px;}
@@ -205,7 +205,7 @@ img{display:block;max-width:100%;}
     <a href="#top" class="brand">
       <img src="thrazha-logo.png" alt="Thrazha" class="brand-mark">
       <span class="brand-text">
-        <span class="brand-word">THRAZHA BAZAAR</span>
+        <span class="brand-word">Thrazha Bazaar</span>
         <span class="brand-sub">A Thrazha International company</span>
       </span>
     </a>
@@ -213,7 +213,6 @@ img{display:block;max-width:100%;}
       <a href="#catalogue">Catalogue</a>
       <a href="#how-it-works">How it works</a>
       <a href="#pickup">Pickup &amp; delivery</a>
-      <a href="https://www.thrazha.ca" class="nav-out">Thrazha.ca ↗</a>
       <button class="watchlist-pill" id="watchlistBtn" type="button">
         Watchlist <span class="watchlist-count" id="watchlistCount">0</span>
       </button>
@@ -423,11 +422,12 @@ img{display:block;max-width:100%;}
 
 <section class="how-it-works" id="how-it-works">
   <p class="eyebrow eyebrow-dark">HOW IT WORKS</p>
-  <h2>Three steps, no bidding wars.</h2>
+  <h2>Four steps, resale made simple.</h2>
   <div class="steps">
     <div class="step"><div class="step-num">1</div><p class="step-title">Browse &amp; reserve</p><p class="step-body">Find something in the catalogue and reserve it — no payment now.</p></div>
     <div class="step"><div class="step-num">2</div><p class="step-title">We confirm condition</p><p class="step-body">We hold the item for 48 hours while we confirm condition with you.</p></div>
     <div class="step"><div class="step-num">3</div><p class="step-title">Pick up or ship</p><p class="step-body">Collect it in person or have it shipped Canada-wide.</p></div>
+    <div class="step"><div class="step-num">4</div><p class="step-title">Pay at pickup</p><p class="step-body">Pay by cash or Interac e-Transfer when you collect your item.</p></div>
   </div>
 </section>
 
@@ -458,7 +458,7 @@ img{display:block;max-width:100%;}
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="thrazha-logo.png" alt="Thrazha" class="footer-mark">
-      <span class="footer-word">THRAZHA BAZAAR</span>
+      <span class="footer-word">Thrazha Bazaar</span>
       <p class="footer-tag">Overstock, returns and auction finds. Shipping Canada-wide.</p>
     </div>
     <div class="footer-col">
@@ -469,7 +469,6 @@ img{display:block;max-width:100%;}
     </div>
     <div class="footer-col">
       <p class="footer-heading">Company</p>
-      <a href="https://www.thrazha.ca">Thrazha.ca</a>
       <a href="https://www.thrazha.ca/about.html">About</a>
       <a href="https://www.thrazha.ca/services.html">Services</a>
       <a href="https://www.thrazha.ca/contact.html">Contact</a>
