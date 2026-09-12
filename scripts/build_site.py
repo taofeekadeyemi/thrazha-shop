@@ -268,7 +268,7 @@ def main():
         <a href="#how-it-works" class="btn-secondary">How buying works</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><strong>{unique_items}</strong><span>Unique items</span></div>
+        <div class="stat"><strong>{unique_items}</strong><span>Unique products</span></div>
         <div class="stat"><strong>{units_in_stock}</strong><span>Units in stock</span></div>
         <div class="stat"><strong>{fmt_price(lowest_price)}</strong><span>Lowest price</span></div>
         <div class="stat"><strong>{departments}</strong><span>Departments</span></div>
