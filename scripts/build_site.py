@@ -180,7 +180,7 @@ def main():
         return html.escape(str(s))
 
     def mini_card_html(c, badge=None, width_class=""):
-        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" loading="lazy">' if c["img"] else ""
+        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" width="1" height="1" loading="lazy">' if c["img"] else ""
         badge_html = f'<span class="badge-new">{esc(badge)}</span>' if badge else ""
         return f"""<div class="rail-card {width_class}" data-id="{esc(c['id'])}">
       <div class="rail-img">{img}{badge_html}</div>
@@ -192,7 +192,7 @@ def main():
     </div>"""
 
     def featured_card_html(c):
-        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" loading="lazy">' if c["img"] else ""
+        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" width="1" height="1" loading="lazy">' if c["img"] else ""
         return f"""<div class="feat-card">
       <div class="feat-img">{img}</div>
       <div class="feat-body">
@@ -206,9 +206,9 @@ def main():
     arrivals_html = "\n".join(mini_card_html(c, badge="NEW IN") for c in arrivals)
     featured_html = "\n".join(featured_card_html(c) for c in featured)
 
-    top_img = f'<img src="{esc(top_product["img"])}" alt="{esc(top_product["title"])}" loading="lazy">' if top_product and top_product["img"] else ""
+    top_img = f'<img src="{esc(top_product["img"])}" alt="{esc(top_product["title"])}" width="16" height="11" loading="lazy">' if top_product and top_product["img"] else ""
     tile_imgs = "".join(
-        f'<div class="hero-tile"><img src="{esc(t["img"])}" alt="{esc(t["title"])}" loading="lazy"></div>' if t["img"] else '<div class="hero-tile"></div>'
+        f'<div class="hero-tile"><img src="{esc(t["img"])}" alt="{esc(t["title"])}" width="1" height="1" loading="lazy"></div>' if t["img"] else '<div class="hero-tile"></div>'
         for t in side_tiles
     )
 
@@ -247,7 +247,7 @@ def main():
     <nav class="main-nav">
       <a href="#catalogue">Catalogue</a>
       <a href="#how-it-works">How it works</a>
-      <a href="#pickup">Pickup &amp; delivery</a>
+      <a href="#get-in-touch">Get in touch</a>
       <button class="watchlist-pill" id="watchlistBtn" type="button">
         Watchlist <span class="watchlist-count" id="watchlistCount">0</span>
       </button>
@@ -401,7 +401,7 @@ def main():
       <a href="https://www.thrazha.ca/services.html">Services</a>
       <a href="https://www.thrazha.ca/contact.html">Contact</a>
     </div>
-    <div class="footer-col">
+    <div class="footer-col" id="get-in-touch">
       <p class="footer-heading">Get in touch</p>
       <a href="mailto:hello@thrazha.ca" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 6l10 7 10-7"></path></svg>hello@thrazha.ca</a>
       <a href="https://www.instagram.com/shopthrazha" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"></stop><stop offset="25%" stop-color="#FCAF45"></stop><stop offset="50%" stop-color="#E1306C"></stop><stop offset="75%" stop-color="#C13584"></stop><stop offset="100%" stop-color="#5B51D8"></stop></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGrad)"></rect><rect x="6.5" y="6.5" width="11" height="11" rx="3.2" fill="none" stroke="#fff" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.6"></circle><circle cx="17" cy="7" r="1.1" fill="#fff"></circle></svg>@shopthrazha</a>
@@ -546,7 +546,7 @@ img{display:block;max-width:100%;}
 .see-all{font-size:14px;font-weight:700;color:var(--olive);}
 .vault-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;}
 .feat-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
-.feat-img{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
+.feat-img{aspect-ratio:1;min-height:0;background:#fff;display:flex;align-items:center;justify-content:center;}
 .feat-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
 .feat-body{padding:14px 15px;display:flex;flex-direction:column;gap:4px;}
 .feat-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--meta-muted);}
@@ -569,8 +569,8 @@ img{display:block;max-width:100%;}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;animation:fadeUp .35s ease;}
 .card:hover{border-color:var(--olive);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-.card-img{position:relative;aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
-.card-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
+.card-img{position:relative;aspect-ratio:1;min-height:0;background:#fff;display:flex;align-items:center;justify-content:center;}
+.card-img img{width:100%;height:100%;min-width:0;min-height:0;object-fit:contain;padding:10px;}
 .condition-chip{position:absolute;top:8px;left:8px;background:rgba(27,30,16,.88);color:#F3F2E4;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 8px;border-radius:6px;}
 .condition-chip.cond-new{background:#2F7D4F;}
 .condition-chip.cond-open-box{background:#C97A1D;}
@@ -710,7 +710,7 @@ JS = r"""
 
   function cardHtml(p){
     const saved = state.saved.has(p.id);
-    const img = p.img ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">` : '';
+    const img = p.img ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" width="1" height="1" loading="lazy">` : '';
     const soldOrComing = p.status !== 'available';
     const ctaLabel = p.status === 'sold' ? 'Sold' : (p.status === 'coming_soon' ? 'Coming soon' : 'Reserve');
     return `<div class="card" data-id="${esc(p.id)}">
