@@ -232,7 +232,7 @@ def main():
     <a href="#top" class="brand">
       <img src="thrazha-logo.png" alt="Thrazha" class="brand-mark">
       <span class="brand-text">
-        <span class="brand-word">THRAZHA BAZAAR</span>
+        <span class="brand-word">Thrazha Bazaar</span>
         <span class="brand-sub">A Thrazha International company</span>
       </span>
     </a>
@@ -240,7 +240,6 @@ def main():
       <a href="#catalogue">Catalogue</a>
       <a href="#how-it-works">How it works</a>
       <a href="#pickup">Pickup &amp; delivery</a>
-      <a href="https://www.thrazha.ca" class="nav-out">Thrazha.ca ↗</a>
       <button class="watchlist-pill" id="watchlistBtn" type="button">
         Watchlist <span class="watchlist-count" id="watchlistCount">0</span>
       </button>
@@ -343,11 +342,12 @@ def main():
 
 <section class="how-it-works" id="how-it-works">
   <p class="eyebrow eyebrow-dark">HOW IT WORKS</p>
-  <h2>Three steps, no bidding wars.</h2>
+  <h2>Four steps, resale made simple.</h2>
   <div class="steps">
     <div class="step"><div class="step-num">1</div><p class="step-title">Browse &amp; reserve</p><p class="step-body">Find something in the catalogue and reserve it — no payment now.</p></div>
     <div class="step"><div class="step-num">2</div><p class="step-title">We confirm condition</p><p class="step-body">We hold the item for 48 hours while we confirm condition with you.</p></div>
     <div class="step"><div class="step-num">3</div><p class="step-title">Pick up or ship</p><p class="step-body">Collect it in person or have it shipped Canada-wide.</p></div>
+    <div class="step"><div class="step-num">4</div><p class="step-title">Pay at pickup</p><p class="step-body">Pay by cash or Interac e-Transfer when you collect your item.</p></div>
   </div>
 </section>
 
@@ -378,7 +378,7 @@ def main():
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="thrazha-logo.png" alt="Thrazha" class="footer-mark">
-      <span class="footer-word">THRAZHA BAZAAR</span>
+      <span class="footer-word">Thrazha Bazaar</span>
       <p class="footer-tag">Overstock, returns and auction finds. Shipping Canada-wide.</p>
     </div>
     <div class="footer-col">
@@ -389,14 +389,15 @@ def main():
     </div>
     <div class="footer-col">
       <p class="footer-heading">Company</p>
-      <a href="https://www.thrazha.ca">Thrazha.ca</a>
       <a href="https://www.thrazha.ca/about.html">About</a>
       <a href="https://www.thrazha.ca/services.html">Services</a>
       <a href="https://www.thrazha.ca/contact.html">Contact</a>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Get in touch</p>
-      <a href="mailto:hello@thrazha.ca">hello@thrazha.ca</a>
+      <a href="mailto:hello@thrazha.ca" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 6l10 7 10-7"></path></svg>hello@thrazha.ca</a>
+      <a href="https://www.instagram.com/shopthrazha" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"></stop><stop offset="25%" stop-color="#FCAF45"></stop><stop offset="50%" stop-color="#E1306C"></stop><stop offset="75%" stop-color="#C13584"></stop><stop offset="100%" stop-color="#5B51D8"></stop></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGrad)"></rect><rect x="6.5" y="6.5" width="11" height="11" rx="3.2" fill="none" stroke="#fff" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.6"></circle><circle cx="17" cy="7" r="1.1" fill="#fff"></circle></svg>@shopthrazha</a>
+      <a href="https://www.facebook.com/profile.php?id=61594140120148" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1877F2"></circle><path d="M13.5 21v-7.2h2.4l.36-2.8h-2.76V9.1c0-.81.22-1.36 1.39-1.36h1.48V5.2C15.98 5.14 15.12 5 14.1 5c-2.1 0-3.54 1.28-3.54 3.63v2.37H8.1v2.8h2.46V21h2.94z" fill="#fff"></path></svg>Thrazha Resellers co.</a>
       <a href="returns.html">Returns &amp; holds policy</a>
       <a href="conditions.html">Condition grades</a>
     </div>
@@ -481,8 +482,8 @@ img{display:block;max-width:100%;}
 .brand{display:flex;align-items:center;gap:10px;}
 .brand-mark{width:40px;height:40px;object-fit:contain;}
 .brand-text{display:flex;flex-direction:column;}
-.brand-word{font-family:Cinzel,serif;font-weight:700;font-size:18px;letter-spacing:.06em;}
-.brand-sub{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--meta-muted);}
+.brand-word{font-family:Cinzel,serif;font-weight:700;font-size:18px;letter-spacing:.06em;font-variant:small-caps;}
+.brand-sub{font-size:10px;font-weight:600;font-variant:small-caps;letter-spacing:.14em;color:var(--meta-muted);}
 .main-nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
 .main-nav a{font-size:14px;font-weight:600;}
 .main-nav a.nav-out{color:var(--meta-muted);}
@@ -605,10 +606,12 @@ img{display:block;max-width:100%;}
 .site-footer{background:var(--olive);color:var(--paper);padding:52px 20px 20px;}
 .footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;padding-bottom:26px;}
 .footer-mark{width:38px;height:38px;object-fit:contain;margin-bottom:10px;}
-.footer-word{font-family:Cinzel,serif;font-weight:700;font-size:17px;letter-spacing:.06em;display:block;margin-bottom:8px;}
+.footer-word{font-family:Cinzel,serif;font-weight:700;font-size:17px;letter-spacing:.06em;font-variant:small-caps;display:block;margin-bottom:8px;}
 .footer-tag{font-size:13px;color:rgba(243,242,228,.7);max-width:32ch;}
 .footer-heading{font-weight:700;font-size:13px;margin-bottom:10px;}
 .footer-col a{display:block;font-size:14px;color:rgba(243,242,228,.82);margin-bottom:8px;}
+.footer-col a.icon-link{display:flex;align-items:center;gap:8px;}
+.footer-col a.icon-link svg{flex-shrink:0;}
 .legal-bar{max-width:1280px;margin:0 auto;border-top:1px solid rgba(243,242,228,.16);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(243,242,228,.6);}
 
 .sheet-overlay{position:fixed;inset:0;background:rgba(27,30,16,.55);backdrop-filter:blur(4px);z-index:50;display:none;align-items:flex-end;justify-content:center;}
