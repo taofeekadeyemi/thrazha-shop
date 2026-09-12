@@ -12,8 +12,8 @@ values below are copied literally from STYLE_GUIDE.md — don't round them.
 
 To add/edit inventory, edit data/products.csv. Columns:
   id, title, category, qty, price_min, price_max, status, lots, photo, condition
-`condition` is one of: New, sealed / Open box / Customer return / Renewed / Overstock.
-If you leave it blank, items default to "Overstock" — update it as you grade items.
+`condition` is one of: New / Open Box / Excellent / Good / Renewed.
+If you leave it blank, items default to "Good" — update it as you grade items.
 """
 import csv, html, json, os, re
 
@@ -38,12 +38,19 @@ CHIP_LABELS = {
 }
 
 VALID_STATUSES = {"available", "sold", "coming_soon"}
-VALID_CONDITIONS = {"New, sealed", "Open box", "Customer return", "Renewed", "Overstock"}
+VALID_CONDITIONS = {"New", "Open Box", "Excellent", "Good", "Renewed"}
+CONDITION_CLASS = {
+    "New": "cond-new",
+    "Open Box": "cond-open-box",
+    "Excellent": "cond-excellent",
+    "Good": "cond-good",
+    "Renewed": "cond-renewed",
+}
 FIELDNAMES = ["id", "title", "category", "qty", "price_min", "price_max", "status", "lots", "photo", "condition", "featured"]
 
 
 def ensure_columns(path):
-    """Back-compat migration: adds `condition` (default Overstock) and `featured`
+    """Back-compat migration: adds `condition` (default Good) and `featured`
     (default blank) columns the first time this runs against an older
     products.csv that doesn't have them yet."""
     with open(path, newline="", encoding="utf-8") as f:
@@ -53,7 +60,7 @@ def ensure_columns(path):
     changed = False
     if "condition" not in fieldnames:
         for row in rows:
-            row["condition"] = "Overstock"
+            row["condition"] = "Good"
         changed = True
     if "featured" not in fieldnames:
         for row in rows:
@@ -80,7 +87,7 @@ def load_products(path):
             status = (row.get("status") or "available").strip().lower()
             row["status"] = status if status in VALID_STATUSES else "available"
             cond = (row.get("condition") or "").strip()
-            row["condition"] = cond if cond in VALID_CONDITIONS else "Overstock"
+            row["condition"] = cond if cond in VALID_CONDITIONS else "Good"
             row["featured"] = (row.get("featured") or "").strip().lower() in ("yes", "true", "1")
             products.append(row)
     return products
@@ -128,6 +135,7 @@ def to_card_dict(item):
         "priceLabel": price_label(item),
         "img": img_src(item),
         "condition": item["condition"],
+        "conditionClass": CONDITION_CLASS.get(item["condition"], ""),
         "qty": item["qty"],
         "unitLabel": unit_label(item),
         "status": item["status"],
@@ -563,6 +571,11 @@ img{display:block;max-width:100%;}
 .card-img{position:relative;aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;}
 .card-img img{width:100%;height:100%;object-fit:contain;padding:10px;}
 .condition-chip{position:absolute;top:8px;left:8px;background:rgba(27,30,16,.88);color:#F3F2E4;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 8px;border-radius:6px;}
+.condition-chip.cond-new{background:#2F7D4F;}
+.condition-chip.cond-open-box{background:#C97A1D;}
+.condition-chip.cond-excellent{background:#2F6FB0;}
+.condition-chip.cond-good{background:#6B6F76;}
+.condition-chip.cond-renewed{background:#7C5CBF;}
 .save-btn{position:absolute;top:8px;right:8px;border-radius:999px;font-size:10px;font-weight:700;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);background:rgba(253,252,244,.92);color:var(--body-muted);cursor:pointer;}
 .save-btn.saved{background:var(--olive);border-color:var(--olive);color:#F3F2E4;}
 .card-body{padding:13px 15px;display:flex;flex-direction:column;gap:3px;flex:1;}
@@ -701,7 +714,7 @@ JS = r"""
     const ctaLabel = p.status === 'sold' ? 'Sold' : (p.status === 'coming_soon' ? 'Coming soon' : 'Reserve');
     return `<div class="card" data-id="${esc(p.id)}">
       <div class="card-img">${img}
-        <span class="condition-chip">${esc(p.condition)}</span>
+        <span class="condition-chip ${esc(p.conditionClass)}">${esc(p.condition)}</span>
         <button type="button" class="save-btn${saved ? ' saved' : ''}" data-save="${esc(p.id)}">${saved ? 'Saved' : 'Save'}</button>
       </div>
       <div class="card-body">

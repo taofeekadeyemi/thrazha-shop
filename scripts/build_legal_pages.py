@@ -104,11 +104,11 @@ def main():
   <p class="lede">Every item on Thrazha Bazaar is tagged with one of the grades below.
   We name the condition — we don't soften it.</p>
 
-  <div class="grade-row"><p class="grade-name">New, sealed</p><p class="grade-desc">Unopened, factory-sealed packaging. No signs of use.</p></div>
-  <div class="grade-row"><p class="grade-name">Open box</p><p class="grade-desc">Packaging opened for inspection or display. Item itself is unused.</p></div>
-  <div class="grade-row"><p class="grade-name">Customer return</p><p class="grade-desc">Previously purchased and returned. Tested and functional unless noted; may show light signs of handling.</p></div>
+  <div class="grade-row"><p class="grade-name">New</p><p class="grade-desc">Unused, in original packaging. No signs of use.</p></div>
+  <div class="grade-row"><p class="grade-name">Open Box</p><p class="grade-desc">Packaging opened for inspection or display. Item itself is unused.</p></div>
+  <div class="grade-row"><p class="grade-name">Excellent</p><p class="grade-desc">Like-new condition with only the lightest signs of handling.</p></div>
+  <div class="grade-row"><p class="grade-name">Good</p><p class="grade-desc">Tested and functional; may show light cosmetic wear.</p></div>
   <div class="grade-row"><p class="grade-name">Renewed</p><p class="grade-desc">Inspected, cleaned and tested to confirm it works as expected.</p></div>
-  <div class="grade-row"><p class="grade-name">Overstock</p><p class="grade-desc">Excess new inventory from a supplier or liquidation lot. New unless otherwise noted.</p></div>
   """
 
     with open(os.path.join(ROOT, "returns.html"), "w", encoding="utf-8") as f:
