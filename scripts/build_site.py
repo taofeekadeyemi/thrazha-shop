@@ -40,6 +40,74 @@ AVAILABILITY_SCHEMA = {
     "coming_soon": "https://schema.org/PreOrder",
 }
 
+# Google Tag Manager / GA4. GTM tag configuration (e.g. a GA4 config tag)
+# lives in the GTM web dashboard, not in this codebase — GA4 is wired here
+# directly via gtag.js as a static-site fallback. If a GA4 config tag is
+# ever added inside the GTM container itself, remove the direct gtag.js
+# loading below (in __loadAnalytics) to avoid double-counting pageviews.
+GTM_HEAD_SNIPPET = r"""<!-- Google Tag Manager -->
+<script>
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  window.__loadAnalytics = function(){
+    if (window.__analyticsLoaded) return;
+    window.__analyticsLoaded = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCBZV6BV');
+    var ga=document.createElement('script');
+    ga.async=true;
+    ga.src='https://www.googletagmanager.com/gtag/js?id=G-6YBL0Z0S6G';
+    document.head.appendChild(ga);
+    gtag('js', new Date());
+    gtag('config', 'G-6YBL0Z0S6G');
+  };
+  try {
+    if (localStorage.getItem('cookie_consent') === 'accepted') { window.__loadAnalytics(); }
+  } catch(e){}
+})();
+</script>
+<!-- End Google Tag Manager -->
+"""
+
+GTM_NOSCRIPT_SNIPPET = r"""<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCBZV6BV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+"""
+
+COOKIE_BANNER_SNIPPET = r"""<div id="cookieConsent" class="cookie-consent" hidden>
+  <p>We use cookies to understand site traffic and improve your experience.</p>
+  <div class="cookie-consent-actions">
+    <button type="button" id="cookieAccept">Accept</button>
+    <button type="button" id="cookieDismiss">Dismiss</button>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var consent = localStorage.getItem('cookie_consent');
+    var dismissed = sessionStorage.getItem('cookie_dismissed');
+    var banner = document.getElementById('cookieConsent');
+    if (consent !== 'accepted' && !dismissed) { banner.hidden = false; }
+    document.getElementById('cookieAccept').addEventListener('click', function(){
+      try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e){}
+      banner.hidden = true;
+      if (window.__loadAnalytics) window.__loadAnalytics();
+    });
+    document.getElementById('cookieDismiss').addEventListener('click', function(){
+      try { sessionStorage.setItem('cookie_dismissed', '1'); } catch(e){}
+      banner.hidden = true;
+    });
+  } catch(e){}
+})();
+</script>
+"""
+
 CATEGORY_ORDER = [
     "Footwear", "Apparel & Clothing", "Electronics", "Home & Kitchen",
     "Bags & Accessories", "Baby & Kids", "Health & Fitness",
@@ -336,7 +404,7 @@ def main():
     html_out = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+{GTM_HEAD_SNIPPET}<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{page_title}</title>
 <meta name="description" content="{esc(page_description)}">
@@ -367,7 +435,7 @@ def main():
 </script>
 </head>
 <body>
-
+{GTM_NOSCRIPT_SNIPPET}{COOKIE_BANNER_SNIPPET}
 <div class="announce">
   <span>New items added weekly</span>
   <span class="ann-accent">Inspected before listing</span>
@@ -796,6 +864,14 @@ img{display:block;max-width:100%;}
   .hero-inner{gap:36px;}
   .footer-grid{gap:26px;}
 }
+
+.cookie-consent{position:fixed;left:20px;right:20px;bottom:20px;z-index:500;max-width:640px;margin:0 auto;background:var(--ink);color:var(--paper);padding:18px 22px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.28);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;}
+.cookie-consent p{margin:0;font-size:13.5px;line-height:1.5;color:rgba(253,252,244,.85);flex:1 1 240px;}
+.cookie-consent-actions{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
+.cookie-consent-actions #cookieAccept{background:var(--leaf);color:var(--ink);border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;}
+.cookie-consent-actions #cookieAccept:hover{background:var(--leaf-hover);}
+.cookie-consent-actions #cookieDismiss{background:none;border:none;color:rgba(253,252,244,.65);font-size:13px;font-weight:600;cursor:pointer;padding:9px 4px;}
+.cookie-consent-actions #cookieDismiss:hover{color:var(--paper);}
 """
 
 JS = r"""

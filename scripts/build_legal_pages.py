@@ -13,7 +13,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from build_site import CSS, SITE_URL  # noqa: E402
+from build_site import CSS, SITE_URL, GTM_HEAD_SNIPPET, GTM_NOSCRIPT_SNIPPET, COOKIE_BANNER_SNIPPET  # noqa: E402
 
 PAGE_CSS = CSS + """
 .legal-page{max-width:760px;margin:0 auto;padding:64px 20px 80px;}
@@ -38,7 +38,7 @@ def shell(title, description, slug, body):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+{GTM_HEAD_SNIPPET}<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{page_title}</title>
 <meta name="description" content="{esc_desc}">
@@ -61,6 +61,7 @@ def shell(title, description, slug, body):
 <style>{PAGE_CSS}</style>
 </head>
 <body>
+{GTM_NOSCRIPT_SNIPPET}{COOKIE_BANNER_SNIPPET}
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
