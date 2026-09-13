@@ -7,12 +7,13 @@ same GitHub Action — see .github/workflows/build.yml).
 These share the CSS tokens from build_site.py so they stay visually
 consistent with the main page without duplicating the token list.
 """
+import html
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from build_site import CSS  # noqa: E402
+from build_site import CSS, SITE_URL  # noqa: E402
 
 PAGE_CSS = CSS + """
 .legal-page{max-width:760px;margin:0 auto;padding:64px 20px 80px;}
@@ -27,13 +28,32 @@ PAGE_CSS = CSS + """
 """
 
 
-def shell(title, body):
+def shell(title, description, slug, body):
+    # `title` arrives pre-escaped (e.g. "Returns &amp; holds policy") since it's
+    # also used verbatim inside the visible page body elsewhere in this file.
+    page_title = f"{title} | Thrazha Bazaar"
+    url = f"{SITE_URL}/{slug}"
+    og_image = f"{SITE_URL}/thrazha-logo.png"
+    esc_desc = html.escape(description)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} | Thrazha Bazaar</title>
+<title>{page_title}</title>
+<meta name="description" content="{esc_desc}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Thrazha Bazaar">
+<meta property="og:title" content="{page_title}">
+<meta property="og:description" content="{esc_desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{page_title}">
+<meta name="twitter:description" content="{esc_desc}">
+<meta name="twitter:image" content="{og_image}">
 <link rel="icon" href="thrazha-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,9 +132,19 @@ def main():
   """
 
     with open(os.path.join(ROOT, "returns.html"), "w", encoding="utf-8") as f:
-        f.write(shell("Returns &amp; holds policy", returns_body))
+        f.write(shell(
+            "Returns &amp; holds policy",
+            "How 48-hour holds, returns and Canada-wide shipping work at Thrazha Bazaar — plain terms, no small print.",
+            "returns.html",
+            returns_body,
+        ))
     with open(os.path.join(ROOT, "conditions.html"), "w", encoding="utf-8") as f:
-        f.write(shell("Condition grades", conditions_body))
+        f.write(shell(
+            "Condition grades",
+            "What New, Open Box, Excellent, Good and Renewed mean for items listed on Thrazha Bazaar.",
+            "conditions.html",
+            conditions_body,
+        ))
 
     print("Wrote returns.html and conditions.html")
 

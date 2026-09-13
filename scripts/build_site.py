@@ -21,6 +21,25 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_PATH = os.path.join(ROOT, "data", "products.csv")
 OUT_PATH = os.path.join(ROOT, "index.html")
 
+SITE_URL = "https://shop.thrazha.ca"
+
+# Maps our condition grades onto schema.org's fixed OfferItemCondition enum
+# (NewCondition / RefurbishedCondition / UsedCondition / DamagedCondition).
+# "Open Box" and "Good" aren't literally "used", but schema.org has no closer
+# term, so they're mapped to UsedCondition per common retailer practice.
+CONDITION_SCHEMA = {
+    "New": "https://schema.org/NewCondition",
+    "Open Box": "https://schema.org/UsedCondition",
+    "Excellent": "https://schema.org/UsedCondition",
+    "Good": "https://schema.org/UsedCondition",
+    "Renewed": "https://schema.org/RefurbishedCondition",
+}
+AVAILABILITY_SCHEMA = {
+    "available": "https://schema.org/InStock",
+    "sold": "https://schema.org/SoldOut",
+    "coming_soon": "https://schema.org/PreOrder",
+}
+
 CATEGORY_ORDER = [
     "Footwear", "Apparel & Clothing", "Electronics", "Home & Kitchen",
     "Bags & Accessories", "Baby & Kids", "Health & Fitness",
@@ -143,6 +162,62 @@ def to_card_dict(item):
     }
 
 
+def build_product_itemlist(available):
+    """Schema.org ItemList of Product entries for the available catalogue —
+    used for the JSON-LD block. Items without a photo would be skipped
+    (Google's product structured-data guidelines expect an image), though
+    none currently lack one.
+
+    Note: this yields *valid* Product markup, but Google generally only grants
+    full merchant/rich-result treatment to a page primarily about one product.
+    With dozens of products sharing this one URL, expect this to help general
+    indexing/context rather than individual star-rating/price rich snippets —
+    that would need a dedicated URL per product.
+    """
+    elements = []
+    position = 0
+    for item in available:
+        if not item["has_photo"]:
+            continue
+        position += 1
+        if item["price_min"] == item["price_max"]:
+            offer = {
+                "@type": "Offer",
+                "url": f"{SITE_URL}/#catalogue",
+                "priceCurrency": "CAD",
+                "price": f"{item['price_max']:.2f}",
+                "itemCondition": CONDITION_SCHEMA.get(item["condition"], "https://schema.org/UsedCondition"),
+                "availability": AVAILABILITY_SCHEMA.get(item["status"], "https://schema.org/InStock"),
+            }
+        else:
+            offer = {
+                "@type": "AggregateOffer",
+                "url": f"{SITE_URL}/#catalogue",
+                "priceCurrency": "CAD",
+                "lowPrice": f"{item['price_min']:.2f}",
+                "highPrice": f"{item['price_max']:.2f}",
+                "offerCount": item["qty"],
+            }
+        elements.append({
+            "@type": "ListItem",
+            "position": position,
+            "item": {
+                "@type": "Product",
+                "name": title_case(item["title"]),
+                "image": f"{SITE_URL}/{item['photo'].strip()}",
+                "category": item["category"],
+                "sku": item["id"],
+                "offers": offer,
+            },
+        })
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Thrazha Bazaar catalogue",
+        "itemListElement": elements,
+    }
+
+
 def main():
     products = load_products(CSV_PATH)
     available = [p for p in products if p["status"] == "available"]
@@ -176,49 +251,107 @@ def main():
         ensure_ascii=False,
     )
 
+    no_photo_ids = [p["id"] for p in available if not p["has_photo"]]
+    product_ld_json = json.dumps(build_product_itemlist(available), ensure_ascii=False)
+
     def esc(s):
         return html.escape(str(s))
 
+    def alt_text(c):
+        return f"{c['title']}, {c['condition']} condition"
+
     def mini_card_html(c, badge=None, width_class=""):
-        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" width="1" height="1" loading="lazy">' if c["img"] else ""
+        img = f'<img src="{esc(c["img"])}" alt="{esc(alt_text(c))}" width="1" height="1" loading="lazy">' if c["img"] else ""
         badge_html = f'<span class="badge-new">{esc(badge)}</span>' if badge else ""
         return f"""<div class="rail-card {width_class}" data-id="{esc(c['id'])}">
       <div class="rail-img">{img}{badge_html}</div>
       <div class="rail-body">
         <p class="rail-cat">{esc(c['chip'])}</p>
-        <p class="rail-title">{esc(c['title'])}</p>
+        <h3 class="rail-title">{esc(c['title'])}</h3>
         <p class="rail-price">{esc(c['priceLabel'])}</p>
       </div>
     </div>"""
 
     def featured_card_html(c):
-        img = f'<img src="{esc(c["img"])}" alt="{esc(c["title"])}" width="1" height="1" loading="lazy">' if c["img"] else ""
+        img = f'<img src="{esc(c["img"])}" alt="{esc(alt_text(c))}" width="1" height="1" loading="lazy">' if c["img"] else ""
         return f"""<div class="feat-card">
       <div class="feat-img">{img}</div>
       <div class="feat-body">
         <p class="feat-cat">{esc(c['chip'])}</p>
-        <p class="feat-title">{esc(c['title'])}</p>
+        <h3 class="feat-title">{esc(c['title'])}</h3>
         <p class="feat-price">{esc(c['priceLabel'])}</p>
         <button class="btn-reserve-solid" data-reserve="{esc(c['id'])}">Reserve this item</button>
       </div>
     </div>"""
 
+    def catalogue_card_html(c):
+        """Server-rendered catalogue card — mirrors the client-side JS `cardHtml()`
+        so the full listing is present (and crawlable/indexable) in the initial
+        HTML response, not only after JS runs. The client JS re-renders this same
+        markup on load for interactivity (search/sort/filter/save), so this is a
+        no-JS-safe starting point, not a second source of truth."""
+        img = f'<img src="{esc(c["img"])}" alt="{esc(alt_text(c))}" width="1" height="1" loading="lazy">' if c["img"] else ""
+        sold_or_coming = c["status"] != "available"
+        cta_label = "Sold" if c["status"] == "sold" else ("Coming soon" if c["status"] == "coming_soon" else "Reserve")
+        return f"""<div class="card" data-id="{esc(c['id'])}">
+      <div class="card-img">{img}
+        <span class="condition-chip {esc(c['conditionClass'])}">{esc(c['condition'])}</span>
+        <button type="button" class="save-btn" data-save="{esc(c['id'])}">Save</button>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">{esc(c['chip'])}</p>
+        <h3 class="card-title">{esc(c['title'])}</h3>
+        <p class="card-price">{esc(c['priceLabel'])}</p>
+        <p class="card-meta">{esc(c['unitLabel'])}</p>
+        <button type="button" class="btn-outline" data-reserve="{esc(c['id'])}" {"disabled" if sold_or_coming else ""}>{esc(cta_label)}</button>
+      </div>
+    </div>"""
+
     arrivals_html = "\n".join(mini_card_html(c, badge="NEW IN") for c in arrivals)
     featured_html = "\n".join(featured_card_html(c) for c in featured)
+    catalogue_html = "\n".join(catalogue_card_html(c) for c in cards)
 
-    top_img = f'<img src="{esc(top_product["img"])}" alt="{esc(top_product["title"])}" width="16" height="11" loading="lazy">' if top_product and top_product["img"] else ""
+    top_img = f'<img src="{esc(top_product["img"])}" alt="{esc(alt_text(top_product))}" width="16" height="11" loading="lazy">' if top_product and top_product["img"] else ""
     tile_imgs = "".join(
-        f'<div class="hero-tile"><img src="{esc(t["img"])}" alt="{esc(t["title"])}" width="1" height="1" loading="lazy"></div>' if t["img"] else '<div class="hero-tile"></div>'
+        f'<div class="hero-tile"><img src="{esc(t["img"])}" alt="{esc(alt_text(t))}" width="1" height="1" loading="lazy"></div>' if t["img"] else '<div class="hero-tile"></div>'
         for t in side_tiles
     )
+
+    page_title = "Thrazha Bazaar | Overstock, Returns &amp; Auction Finds"
+    page_description = (
+        f"Thrazha Bazaar — {unique_items} name-brand overstock, open-box and returned items "
+        f"at outlet prices, from {fmt_price(lowest_price)}. New items every week. A Thrazha International company."
+    )
+    og_image = f"{SITE_URL}/{top_product['img']}" if top_product and top_product.get("img") else f"{SITE_URL}/thrazha-logo.png"
+    organization_ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Thrazha Bazaar",
+        "url": SITE_URL,
+        "logo": f"{SITE_URL}/thrazha-logo.png",
+        "email": "hello@thrazha.ca",
+        "parentOrganization": {"@type": "Organization", "name": "Thrazha International Inc.", "url": "https://www.thrazha.ca"},
+    }, ensure_ascii=False)
 
     html_out = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thrazha Bazaar | Overstock, Returns &amp; Auction Finds</title>
-<meta name="description" content="Thrazha Bazaar — premium-brand overstock, open-box and customer-return inventory at outlet prices. New items every week. A Thrazha International company.">
+<title>{page_title}</title>
+<meta name="description" content="{esc(page_description)}">
+<link rel="canonical" href="{SITE_URL}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Thrazha Bazaar">
+<meta property="og:title" content="{page_title}">
+<meta property="og:description" content="{esc(page_description)}">
+<meta property="og:url" content="{SITE_URL}/">
+<meta property="og:image" content="{og_image}">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{page_title}">
+<meta name="twitter:description" content="{esc(page_description)}">
+<meta name="twitter:image" content="{og_image}">
 <link rel="icon" href="thrazha-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -226,6 +359,12 @@ def main():
 <style>
 {CSS}
 </style>
+<script type="application/ld+json">
+{organization_ld}
+</script>
+<script type="application/ld+json">
+{product_ld_json}
+</script>
 </head>
 <body>
 
@@ -340,7 +479,9 @@ def main():
     <div class="chips" id="chipRow"></div>
   </div>
 
-  <div class="product-grid" id="productGrid"></div>
+  <div class="product-grid" id="productGrid">
+    {catalogue_html}
+  </div>
   <div class="empty-state" id="emptyState" hidden>
     <p class="empty-title">Nothing matches that yet.</p>
     <p class="empty-body">New items land every week — check back soon or clear your filters.</p>
@@ -464,6 +605,8 @@ window.__CHIPS__ = {chips_json};
         f.write(html_out)
 
     print(f"Wrote {OUT_PATH} — {unique_items} items, {units_in_stock} units, {departments} departments")
+    if no_photo_ids:
+        print(f"NOTE: {len(no_photo_ids)} item(s) have no photo and were skipped from Product structured data: {', '.join(no_photo_ids)}")
 
 
 CSS = r"""
@@ -477,6 +620,7 @@ html{scroll-behavior:smooth;}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,sans-serif;font-size:16px;line-height:1.6;}
 a{color:inherit;text-decoration:none;}
 h1,h2{font-family:'Source Serif 4',serif;font-weight:700;text-wrap:pretty;margin:0;}
+h3{margin:0;text-wrap:pretty;}
 p{margin:0;text-wrap:pretty;}
 button,select,input,textarea{font-family:inherit;}
 img{display:block;max-width:100%;}
@@ -710,7 +854,8 @@ JS = r"""
 
   function cardHtml(p){
     const saved = state.saved.has(p.id);
-    const img = p.img ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" width="1" height="1" loading="lazy">` : '';
+    const altText = `${p.title}, ${p.condition} condition`;
+    const img = p.img ? `<img src="${esc(p.img)}" alt="${esc(altText)}" width="1" height="1" loading="lazy">` : '';
     const soldOrComing = p.status !== 'available';
     const ctaLabel = p.status === 'sold' ? 'Sold' : (p.status === 'coming_soon' ? 'Coming soon' : 'Reserve');
     return `<div class="card" data-id="${esc(p.id)}">
@@ -720,7 +865,7 @@ JS = r"""
       </div>
       <div class="card-body">
         <p class="card-cat">${esc(p.chip)}</p>
-        <p class="card-title">${esc(p.title)}</p>
+        <h3 class="card-title">${esc(p.title)}</h3>
         <p class="card-price">${esc(p.priceLabel)}</p>
         <p class="card-meta">${esc(p.unitLabel)}</p>
         <button type="button" class="btn-outline" data-reserve="${esc(p.id)}" ${soldOrComing ? 'disabled' : ''}>${ctaLabel}</button>
@@ -795,7 +940,7 @@ JS = r"""
     activeProduct = PRODUCTS.find(p => p.id === id);
     if (!activeProduct) return;
     document.getElementById('sheetImg').src = activeProduct.img || '';
-    document.getElementById('sheetImg').alt = activeProduct.title;
+    document.getElementById('sheetImg').alt = `${activeProduct.title}, ${activeProduct.condition} condition`;
     document.getElementById('sheetMeta').textContent = `${activeProduct.condition} · ${activeProduct.chip}`;
     document.getElementById('sheetTitle').textContent = activeProduct.title;
     document.getElementById('sheetPrice').textContent = activeProduct.priceLabel;
