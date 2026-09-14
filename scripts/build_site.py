@@ -470,6 +470,7 @@ def main():
       <p class="hero-body">Name-brand overstock, open-box and customer returns —
       footwear, apparel, electronics and home essentials. Every item inspected, graded and
       priced well below retail.</p>
+      <p class="hero-note">No online checkout — every sale is confirmed by chat (WhatsApp, Instagram or Facebook) and paid by cash or e-Transfer at pickup.</p>
       <div class="hero-buttons">
         <a href="#catalogue" class="btn-primary">Browse the catalogue</a>
         <a href="#how-it-works" class="btn-secondary">How buying works</a>
@@ -560,6 +561,7 @@ def main():
 <section class="how-it-works" id="how-it-works">
   <p class="eyebrow eyebrow-dark">HOW IT WORKS</p>
   <h2>Four steps, resale made simple.</h2>
+  <p class="how-it-works-note">There's no online checkout. Every sale is finalized by chat — message us on WhatsApp, Instagram or Facebook to confirm pickup, then pay by cash or Interac e-Transfer when you collect your item.</p>
   <div class="steps">
     <div class="step"><div class="step-num">1</div><p class="step-title">Browse &amp; reserve</p><p class="step-body">Find something in the catalogue and reserve it — no payment now.</p></div>
     <div class="step"><div class="step-num">2</div><p class="step-title">We confirm condition</p><p class="step-body">We hold the item for 48 hours while we confirm condition with you.</p></div>
@@ -616,6 +618,7 @@ def main():
       <a href="https://www.instagram.com/shopthrazha" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"></stop><stop offset="25%" stop-color="#FCAF45"></stop><stop offset="50%" stop-color="#E1306C"></stop><stop offset="75%" stop-color="#C13584"></stop><stop offset="100%" stop-color="#5B51D8"></stop></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGrad)"></rect><rect x="6.5" y="6.5" width="11" height="11" rx="3.2" fill="none" stroke="#fff" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.6"></circle><circle cx="17" cy="7" r="1.1" fill="#fff"></circle></svg>@shopthrazha</a>
       <a href="https://www.facebook.com/profile.php?id=61594140120148" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1877F2"></circle><path d="M13.5 21v-7.2h2.4l.36-2.8h-2.76V9.1c0-.81.22-1.36 1.39-1.36h1.48V5.2C15.98 5.14 15.12 5 14.1 5c-2.1 0-3.54 1.28-3.54 3.63v2.37H8.1v2.8h2.46V21h2.94z" fill="#fff"></path></svg>Thrazha Resellers co.</a>
       <a href="https://www.tiktok.com/@shoponlinetharzha" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#000"></circle><path d="M15.5 6.5c.4 1.6 1.6 2.7 3.2 2.9v2.1c-1.1 0-2.2-.3-3.2-.9v5.1c0 2.6-2.1 4.2-4.4 4.2-2.6 0-4.4-1.9-4.4-4.2 0-2.5 2.1-4.3 4.6-4.1v2.2c-1.1-.2-2.3.6-2.3 1.9 0 1.1.9 1.9 2 1.9 1.2 0 2.1-.9 2.1-2.3V6.5h2.4z" fill="#fff"></path></svg>@shoponlinetharzha</a>
+      <a href="https://wa.me/message/BVG7PXCW2BEEN1" target="_blank" rel="noopener noreferrer" class="icon-link"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"></circle><path d="M12.02 5.5c-3.6 0-6.52 2.92-6.52 6.52 0 1.15.3 2.27.87 3.26L5.5 18.5l3.34-.87a6.5 6.5 0 0 0 3.18.83h.01c3.6 0 6.52-2.92 6.52-6.52 0-1.74-.68-3.38-1.91-4.61a6.48 6.48 0 0 0-4.61-1.91zm0 11.93h-.01a5.4 5.4 0 0 1-2.76-.76l-.2-.12-2.05.54.55-2-.13-.2a5.4 5.4 0 0 1-.82-2.86 5.42 5.42 0 0 1 9.24-3.83 5.38 5.38 0 0 1 1.59 3.83c0 2.99-2.43 5.4-5.41 5.4zm2.96-4.05c-.16-.08-.96-.47-1.11-.53-.15-.05-.26-.08-.37.08-.11.16-.42.53-.52.64-.09.11-.19.12-.35.04-.16-.08-.68-.25-1.29-.8-.48-.42-.8-.95-.9-1.11-.09-.16-.01-.25.07-.32.07-.07.16-.19.24-.28.08-.1.11-.16.16-.27.05-.11.03-.2-.01-.28-.04-.08-.37-.89-.51-1.22-.13-.32-.27-.28-.37-.28-.1-.01-.2-.01-.31-.01-.11 0-.28.04-.43.2-.15.16-.56.55-.56 1.34s.58 1.55.66 1.66c.08.11 1.14 1.74 2.76 2.44.39.17.69.27.92.34.39.12.74.11 1.02.06.31-.05.96-.39 1.09-.77.14-.38.14-.7.1-.77-.04-.07-.15-.11-.31-.19z" fill="#fff"></path></svg>+1 (647) 946-7362</a>
       <a href="returns.html">Returns &amp; holds policy</a>
       <a href="conditions.html">Condition grades</a>
     </div>
@@ -648,13 +651,15 @@ def main():
         </select>
         <textarea placeholder="Anything we should know? (optional)" id="rNote" rows="3"></textarea>
         <button type="submit" class="btn-hold">Hold this item for 48 hours</button>
-        <p class="sheet-fineprint">No payment now. We confirm condition first.</p>
+        <p class="sheet-fineprint">No online checkout, no payment now. After reserving, message us on WhatsApp, Instagram or Facebook to confirm pickup and payment details.</p>
+        <p class="sheet-contact-line">WhatsApp <a href="https://wa.me/message/BVG7PXCW2BEEN1" target="_blank" rel="noopener noreferrer">+1 (647) 946-7362</a> &middot; <a href="mailto:hello@thrazha.ca">hello@thrazha.ca</a></p>
       </form>
     </div>
     <div class="sheet-done" id="sheetDone" hidden>
       <p class="done-title">Held for 48 hours.</p>
-      <p class="done-body">We've opened an email to our team with your details — send it and
-      we'll confirm within one business day.</p>
+      <p class="done-body">We've opened an email to our team with your details — send it, or message
+      us on WhatsApp, Instagram or Facebook, and we'll confirm pickup and payment within one business day.</p>
+      <p class="sheet-contact-line">WhatsApp <a href="https://wa.me/message/BVG7PXCW2BEEN1" target="_blank" rel="noopener noreferrer">+1 (647) 946-7362</a> &middot; <a href="mailto:hello@thrazha.ca">hello@thrazha.ca</a></p>
       <button class="btn-outline-dark" id="sheetDoneClose" type="button">Close</button>
     </div>
   </div>
@@ -717,6 +722,7 @@ img{display:block;max-width:100%;}
 .eyebrow-pill .dot{width:7px;height:7px;border-radius:999px;background:var(--leaf);}
 .hero h1{color:var(--paper);font-size:clamp(40px,6.4vw,74px);line-height:1.02;letter-spacing:-.025em;margin-bottom:22px;}
 .hero-body{color:rgba(243,242,228,.82);font-size:clamp(16px,1.6vw,19px);line-height:1.6;max-width:46ch;margin-bottom:28px;}
+.hero-note{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em;line-height:1.6;color:var(--leaf-light);max-width:46ch;margin-bottom:28px;}
 .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
 .btn-primary{background:var(--leaf);color:var(--ink);border-radius:10px;padding:15px 26px;font-weight:700;font-size:15px;}
 .btn-primary:hover{background:var(--leaf-hover);}
@@ -807,7 +813,8 @@ img{display:block;max-width:100%;}
 .btn-clear{background:var(--olive);color:var(--paper-sunk);border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;}
 
 .how-it-works{background:var(--ink);padding:52px 20px;max-width:1280px;margin:0 auto;border-radius:0;}
-.how-it-works h2{color:var(--paper);font-size:clamp(26px,3.2vw,38px);margin-bottom:26px;}
+.how-it-works h2{color:var(--paper);font-size:clamp(26px,3.2vw,38px);margin-bottom:14px;}
+.how-it-works-note{color:rgba(243,242,228,.7);font-size:14.5px;line-height:1.6;max-width:64ch;margin-bottom:26px;}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
 .step{border:1px solid rgba(243,242,236,.16);border-radius:16px;padding:26px;}
 .step-num{font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;color:var(--leaf-light);margin-bottom:10px;}
@@ -856,6 +863,9 @@ img{display:block;max-width:100%;}
 .btn-hold{background:var(--olive);color:var(--paper-sunk);border:none;border-radius:9px;padding:14px;font-weight:700;font-size:14px;cursor:pointer;margin-top:4px;}
 .btn-hold:hover{background:var(--olive-mid);}
 .sheet-fineprint{font-size:12px;color:var(--meta-muted);text-align:center;margin-top:4px;}
+.sheet-contact-line{font-size:12.5px;color:var(--meta-muted);text-align:center;margin-top:8px;}
+.sheet-contact-line a{color:var(--olive);font-weight:700;}
+.sheet-contact-line a:hover{color:var(--olive-mid);}
 .sheet-done{padding:36px 24px;text-align:center;}
 .done-title{font-size:18px;font-weight:700;margin-bottom:8px;}
 .done-body{font-size:14px;color:var(--meta-muted);margin-bottom:20px;}
