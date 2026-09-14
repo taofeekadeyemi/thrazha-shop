@@ -865,6 +865,7 @@ img{display:block;max-width:100%;}
   .footer-grid{gap:26px;}
 }
 
+.cookie-consent[hidden]{display:none;}
 .cookie-consent{position:fixed;left:20px;right:20px;bottom:20px;z-index:500;max-width:640px;margin:0 auto;background:var(--ink);color:var(--paper);padding:18px 22px;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.28);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;}
 .cookie-consent p{margin:0;font-size:13.5px;line-height:1.5;color:rgba(253,252,244,.85);flex:1 1 240px;}
 .cookie-consent-actions{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
