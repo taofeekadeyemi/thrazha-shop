@@ -29,7 +29,7 @@ PAGE_CSS = CSS + """
 
 
 def shell(title, description, slug, body):
-    # `title` arrives pre-escaped (e.g. "Returns &amp; holds policy") since it's
+    # `title` arrives pre-escaped (e.g. "Holds &amp; sale terms") since it's
     # also used verbatim inside the visible page body elsewhere in this file.
     page_title = f"{title} | Thrazha Bazaar"
     url = f"{SITE_URL}/{slug}"
@@ -95,8 +95,8 @@ def shell(title, description, slug, body):
 
 def main():
     returns_body = """
-  <p class="eyebrow">RETURNS &amp; HOLDS</p>
-  <h1>Returns &amp; holds policy</h1>
+  <p class="eyebrow">HOLDS &amp; SALE TERMS</p>
+  <h1>Holds &amp; sale terms</h1>
   <p class="lede">Plain terms — no small print. Every item is opened, tested and
   condition-tagged before it's listed, so what you see is what you get.</p>
 
@@ -106,9 +106,10 @@ def main():
   delivery, or Canada-wide shipping. If we don't hear back within 48 hours, the hold is
   released and the item goes back on the shelf.</p>
 
-  <h2>Returns</h2>
-  <p>Because these are overstock, open-box and customer-return items sold at outlet
-  prices, all sales are final once picked up or delivered — we won't misrepresent an
+  <h2>All sales are final</h2>
+  <p>Because these are overstock, open-box and condition-graded items (New, Excellent,
+  Good, or Renewed, as noted per listing) sold at outlet prices, all sales are final
+  once picked up or delivered — we won't misrepresent an
   item's condition, and we'll tell you plainly if something is scuffed, missing a box, or
   untested. If an item arrives materially different from how it was described, email
   <a href="mailto:hello@thrazha.ca">hello@thrazha.ca</a> within 48 hours of pickup or
@@ -134,8 +135,8 @@ def main():
 
     with open(os.path.join(ROOT, "returns.html"), "w", encoding="utf-8") as f:
         f.write(shell(
-            "Returns &amp; holds policy",
-            "How 48-hour holds, returns and Canada-wide shipping work at Thrazha Bazaar — plain terms, no small print.",
+            "Holds &amp; sale terms",
+            "How 48-hour holds and Canada-wide shipping work at Thrazha Bazaar — plain terms, no small print.",
             "returns.html",
             returns_body,
         ))
